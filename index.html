@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Cidia's · studio · video fixed · clean</title>
+  <title>Cidia's · mirror layout · mobile friendly</title>
   <style>
     * {
       margin: 0;
@@ -11,16 +11,14 @@
       box-sizing: border-box;
     }
 
-    /* ---------- 2026 PALETTE (exact same as previous) ---------- 
-       Background: #F2D7DE (slightly darker blush)
-    */
+    /* ---------- 2026 PALETTE (same warm blush) ---------- */
     body {
       min-height: 100vh;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 16px;
       margin: 0;
       background: #F2D7DE;
       background-image: radial-gradient(circle at 15% 30%, rgba(245, 200, 215, 0.4) 0%, transparent 50%),
@@ -28,442 +26,420 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* KIOSK CARD */
+    /* KIOSK CARD - now flex for mirror layout */
     .kiosk {
-      max-width: 1000px;
+      max-width: 1200px;
       width: 100%;
       background: #FFFFFF;
-      border-radius: 48px 48px 40px 40px;
-      box-shadow: 
-        0 30px 50px -20px rgba(140, 100, 110, 0.3),
-        0 10px 20px -8px rgba(170, 120, 130, 0.2),
-        inset 0 1px 0 #FFEFF3;
-      padding: 40px 48px 48px 48px;
+      border-radius: 48px;
+      box-shadow: 0 30px 50px -20px rgba(140, 100, 110, 0.3);
       border: 1px solid #E9BACB;
-      transition: all 0.25s ease;
+      padding: 32px;
+      position: relative;
       backdrop-filter: blur(2px);
-      position: relative;
     }
 
-    .kiosk::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      background: radial-gradient(ellipse at 30% 40%, #FCEAF1 0%, transparent 60%);
-      pointer-events: none;
-      border-radius: 40px;
-      z-index: 0;
-      opacity: 0.5;
+    /* Mirror layout: side by side on desktop, stacked on mobile */
+    .mirror-container {
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+      align-items: center;
     }
 
-    .kiosk > * {
-      position: relative;
-      z-index: 2;
+    /* Left side - VIDEO (mirror style) */
+    .video-mirror {
+      flex: 1;
+      min-width: 0; /* prevents overflow */
     }
 
-    /* VIDEO CONTAINER — with fallback */
-    .video-header {
+    .video-wrapper {
       width: 100%;
       border-radius: 32px;
       overflow: hidden;
-      margin-bottom: 30px;
-      box-shadow: 0 15px 25px -10px rgba(140, 90, 110, 0.3);
-      border: 2px solid #F5C4D6;
+      box-shadow: 0 20px 30px -10px rgba(140, 90, 110, 0.3);
+      border: 3px solid #F5C4D6;
       background: #FDF0F5;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 4 / 5; /* portrait style for face/body shots */
     }
 
-    .video-header video {
+    .video-wrapper video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      background: #FCE4EC; /* soft pink while loading */
+      background: #FCE4EC;
     }
 
-    /* TYPOGRAPHY */
-    h1 {
-      font-size: 4rem;
+    /* Right side - CONTENT */
+    .content-side {
+      flex: 1;
+      min-width: 0;
+      padding: 8px;
+    }
+
+    /* Branding - updated to "Cidia's HAIR & ART STUDIO" (all caps for ART STUDIO) */
+    .brand-main {
+      margin-bottom: 16px;
+    }
+
+    .brand-main h1 {
+      font-size: 3.8rem;
       font-weight: 500;
       line-height: 1.1;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       color: #52303F;
-      margin-bottom: 0.25rem;
-      font-family: 'Playfair Display', 'Times New Roman', serif;
+      font-family: 'Playfair Display', serif;
       text-shadow: 2px 2px 0 #FDE1EC;
     }
 
-    h1 span {
-      font-size: 2rem;
-      font-weight: 350;
+    .brand-main .hair-art {
+      font-size: 2.2rem;
+      font-weight: 400;
       display: block;
       color: #AC758B;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      margin-top: 8px;
+      margin-top: 4px;
       font-family: 'Inter', sans-serif;
+      word-break: break-word;
     }
 
-    .tagline {
-      font-size: 1.1rem;
+    /* Elegant tagline */
+    .tagline-mirror {
+      font-size: 1rem;
       font-weight: 400;
       color: #B27F92;
       background: #FDEDF3;
       display: inline-block;
-      padding: 0.5rem 1.8rem;
+      padding: 0.5rem 1.5rem;
       border-radius: 40px;
-      letter-spacing: 2px;
-      margin: 20px 0 12px 0;
+      letter-spacing: 1.5px;
+      margin: 16px 0 12px 0;
       border: 1px solid #E6B7C9;
       text-transform: uppercase;
-      font-family: 'Inter', sans-serif;
-      backdrop-filter: blur(2px);
-      box-shadow: 0 2px 6px rgba(235, 170, 190, 0.3);
     }
 
-    .dreams {
-      font-size: 5rem;
+    /* Headline */
+    .dreams-mirror {
+      font-size: 3.8rem;
       font-weight: 450;
-      line-height: 1;
+      line-height: 1.1;
       color: #603A49;
-      margin: 30px 0 10px 0;
+      margin: 20px 0 16px 0;
       font-family: 'Playfair Display', serif;
       font-style: italic;
       letter-spacing: -0.02em;
       border-bottom: 2px solid #F2C3D4;
-      padding-bottom: 20px;
+      padding-bottom: 16px;
     }
 
-    .service-desc {
-      font-size: 1.8rem;
+    /* Service description - smaller on mirror */
+    .service-desc-mirror {
+      font-size: 1.3rem;
       font-weight: 330;
       color: #593F4A;
-      margin: 30px 0 36px 0;
+      margin: 20px 0 28px 0;
       border-left: 3px solid #EFAFC6;
-      padding-left: 32px;
+      padding-left: 24px;
       background: linear-gradient(to right, #FEF0F6, transparent);
       line-height: 1.5;
-      font-family: 'Inter', sans-serif;
     }
 
-    .service-desc p {
-      margin: 8px 0;
+    .service-desc-mirror p {
+      margin: 6px 0;
     }
 
-    /* BOOKING CARD */
-    .booking-card {
-      background: #FEF2F7;
-      border-radius: 100px;
-      padding: 24px 32px;
-      margin: 40px 0 30px 0;
+    /* Booking row - compact for mirror */
+    .booking-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 16px;
+      background: #FEF2F7;
+      border-radius: 80px;
+      padding: 16px 24px;
+      margin: 24px 0 20px 0;
       border: 1px solid #EEAFC5;
-      box-shadow: 0 10px 15px -8px rgba(180, 110, 130, 0.25);
-      transition: all 0.15s ease;
+      box-shadow: 0 8px 0 #FAD2E2;
     }
 
-    .booking-card:hover {
-      background: #FFFFFF;
-      border-color: #E892B1;
-      box-shadow: 0 15px 20px -10px rgba(160, 90, 115, 0.3);
-    }
-
-    .booking-text {
-      font-size: 2.2rem;
+    .booking-text-mirror {
+      font-size: 1.8rem;
       font-weight: 380;
       color: #773E56;
-      letter-spacing: -0.01em;
       font-family: 'Playfair Display', serif;
     }
 
-    .booking-phone {
+    .booking-phone-mirror {
       background: #FFFFFF;
       color: #9F5D79;
-      font-size: 2.4rem;
+      font-size: 2rem;
       font-weight: 400;
-      padding: 0.5rem 1.8rem;
-      border-radius: 80px;
-      text-decoration: none;
+      padding: 0.4rem 1.5rem;
+      border-radius: 60px;
       border: 1px solid #EFA3BF;
       box-shadow: 0 4px 0 #FAD2E2;
-      font-family: 'Inter', sans-serif;
-      letter-spacing: 1px;
-      transition: all 0.1s;
+      white-space: nowrap;
     }
 
-    .booking-phone:active {
-      transform: translateY(3px);
-      box-shadow: 0 1px 0 #E696B4;
-    }
-
-    /* INSTAGRAM — only @hairartbycidia */
-    .instagram-row {
+    /* Instagram minimal */
+    .instagram-mirror {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 18px;
-      margin: 25px 0 20px 0;
-      padding: 14px 28px;
+      gap: 12px;
+      margin: 16px 0;
+      padding: 10px 20px;
       background: #FEF0F6;
-      border-radius: 80px;
+      border-radius: 60px;
       border: 1px solid #EBB6CC;
-      box-shadow: 0 6px 0 #F4C1D4;
       width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-      flex-wrap: wrap;
+      box-shadow: 0 4px 0 #F4C1D4;
     }
 
-    .instagram-icon {
-      width: 42px;
-      height: 42px;
+    .instagram-icon-small {
+      width: 36px;
+      height: 36px;
       background: radial-gradient(circle at 30% 30%, #F5A9C4, #D85F8B);
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 0 #A14065, 0 6px 12px rgba(190, 80, 120, 0.3);
     }
 
-    .instagram-icon svg {
-      width: 28px;
-      height: 28px;
+    .instagram-icon-small svg {
+      width: 24px;
+      height: 24px;
       fill: white;
     }
 
-    .instagram-handle {
-      font-size: 1.7rem;
+    .instagram-handle-mirror {
+      font-size: 1.4rem;
       font-weight: 400;
       color: #6F3F53;
-      font-family: 'Inter', sans-serif;
       background: #FFFFFFD0;
-      padding: 0.5rem 1.8rem;
-      border-radius: 60px;
-      backdrop-filter: blur(4px);
+      padding: 0.3rem 1.4rem;
+      border-radius: 40px;
       border: 1px solid #EAA7C0;
-      box-shadow: 0 3px 0 #F2B9CF;
     }
 
-    .instagram-handle a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* NAVIGATION */
-    .nav-grid {
+    /* Navigation - grid for mobile */
+    .nav-mirror {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin: 32px 0 28px 0;
-      justify-content: center;
+      gap: 8px;
+      margin: 24px 0 16px 0;
+      justify-content: flex-start;
     }
 
-    .nav-btn {
+    .nav-btn-mirror {
       background: #FFFFFF;
       border: 1px solid #EEAFC7;
-      border-radius: 60px;
-      padding: 16px 28px;
-      font-size: 1.4rem;
+      border-radius: 40px;
+      padding: 12px 20px;
+      font-size: 1.1rem;
       font-weight: 380;
       color: #613D4D;
-      box-shadow: 0 5px 0 #FCD2E3;
-      transition: all 0.1s ease;
+      box-shadow: 0 4px 0 #FCD2E3;
+      transition: all 0.1s;
       text-align: center;
       flex: 0 1 auto;
-      min-width: 130px;
-      text-transform: none;
-      letter-spacing: 0.5px;
-      font-family: 'Inter', sans-serif;
-      cursor: pointer;
     }
 
-    .nav-btn.curly {
+    .nav-btn-mirror.curly {
       background: #FEF0F7;
       border-color: #E999B8;
       color: #8F4667;
-      box-shadow: 0 5px 0 #F5B8D1;
-      font-weight: 420;
+      box-shadow: 0 4px 0 #F5B8D1;
     }
 
-    .nav-btn:active {
-      transform: translateY(4px);
+    .nav-btn-mirror:active {
+      transform: translateY(3px);
       box-shadow: 0 1px 0 #E696B5;
     }
 
-    /* bottom row: call/text + phone */
-    .bottom-links {
+    /* Bottom row - call/text + address */
+    .bottom-mirror {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 16px;
-      margin: 28px 0 24px;
-      justify-content: center;
+      margin-top: 20px;
+      justify-content: space-between;
     }
 
-    .chip {
+    .chip-mirror {
       background: #FEF1F7;
       border-radius: 60px;
-      padding: 18px 36px;
-      font-size: 1.5rem;
+      padding: 14px 28px;
+      font-size: 1.3rem;
       font-weight: 360;
       color: #6A3F52;
       border: 1px solid #EEB2CA;
-      box-shadow: 0 6px 0 #FCD0E2;
-      transition: all 0.1s ease;
-      flex: 0 1 auto;
-      min-width: 220px;
-      text-align: center;
-      font-family: 'Inter', sans-serif;
-      letter-spacing: 1px;
+      box-shadow: 0 5px 0 #FCD0E2;
+      white-space: nowrap;
     }
 
-    .chip:active {
-      transform: translateY(5px);
-      box-shadow: 0 1px 0 #E89FBC;
-    }
-
-    /* ADDRESS block */
-    .address-block {
-      text-align: center;
-      margin-top: 25px;
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-      font-weight: 350;
-      color: #7B4D62;
+    .address-mirror {
       background: #FEF0F6;
-      padding: 18px 24px;
-      border-radius: 80px;
+      border-radius: 60px;
+      padding: 14px 28px;
+      font-size: 1.2rem;
+      color: #7B4D62;
       border: 1px solid #E9B4CA;
-      box-shadow: 0 6px 0 #FACFDF;
-      font-family: 'Inter', sans-serif;
-      letter-spacing: 0.3px;
+      box-shadow: 0 5px 0 #FACFDF;
+      text-align: center;
+      flex: 1;
+      min-width: 240px;
     }
 
-    /* responsive */
-    @media (max-width: 700px) {
+    /* Mobile styles: stack vertically */
+    @media (max-width: 800px) {
+      .mirror-container {
+        flex-direction: column;
+      }
+      
+      .video-wrapper {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      
+      .brand-main h1 {
+        font-size: 3rem;
+      }
+      
+      .brand-main .hair-art {
+        font-size: 1.8rem;
+      }
+      
+      .dreams-mirror {
+        font-size: 2.8rem;
+      }
+      
+      .service-desc-mirror {
+        font-size: 1.2rem;
+      }
+      
+      .booking-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .bottom-mirror {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .nav-mirror {
+        justify-content: center;
+      }
+    }
+
+    /* Small mobile */
+    @media (max-width: 480px) {
       .kiosk {
-        padding: 28px 20px;
+        padding: 20px;
       }
-      h1 {
-        font-size: 3.2rem;
+      
+      .brand-main h1 {
+        font-size: 2.5rem;
       }
-      h1 span {
+      
+      .brand-main .hair-art {
         font-size: 1.5rem;
       }
-      .dreams {
-        font-size: 3.6rem;
+      
+      .dreams-mirror {
+        font-size: 2.2rem;
       }
-      .service-desc {
-        font-size: 1.4rem;
-        padding-left: 20px;
+      
+      .booking-text-mirror {
+        font-size: 1.5rem;
       }
-      .booking-text {
-        font-size: 1.8rem;
-      }
-      .booking-phone {
-        font-size: 1.8rem;
-      }
-      .instagram-row {
-        flex-direction: column;
-        text-align: center;
-      }
-      .instagram-handle {
-        font-size: 1.4rem;
-      }
-      .nav-btn {
-        font-size: 1.2rem;
-        padding: 14px 18px;
-        min-width: 110px;
-      }
-      .chip {
-        font-size: 1.3rem;
-        padding: 16px 24px;
-        min-width: 170px;
-      }
-      .address-block {
-        font-size: 1.2rem;
-        padding: 14px 18px;
+      
+      .booking-phone-mirror {
+        font-size: 1.5rem;
       }
     }
   </style>
-  <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=block" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="kiosk">
-    <!-- VIDEO HEADER — FIXED PATH: raw.githubusercontent.com URL -->
-    <div class="video-header">
-      <video autoplay loop muted playsinline controls style="width:100%; height:100%; object-fit:cover;">
-        <!-- CORRECTED RAW GITHUB URL (your screenshot shows the repo and file) -->
-        <source src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/hair-style.mp4" type="video/mp4">
-        <!-- Fallback text and additional formats for compatibility -->
-        Your browser does not support the video tag. 
-        <a href="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/hair-style.mp4">Download the hairstyle video</a>
-      </video>
-    </div>
-
-    <!-- HEADER -->
-    <h1>Cidia's<span>hair & Art studio</span></h1>
-
-    <!-- TAGLINE -->
-    <div class="tagline">ELEGANT AND MODERN SALON</div>
-
-    <!-- MAIN HEADLINE -->
-    <div class="dreams">Hair of your dreams</div>
-
-    <!-- SERVICE DESCRIPTION -->
-    <div class="service-desc">
-      <p>OUTSTANDING EXPERIENCE AND</p>
-      <p>EXCEPTIONAL LEVEL OF SERVICE</p>
-      <p>TO CLIENTS, WHATEVER THEIR</p>
-      <p>REQUIREMENTS MAY BE</p>
-    </div>
-
-    <!-- BOOKING CARD -->
-    <div class="booking-card" role="button" tabindex="0" aria-label="Book appointment call 203-788-7260">
-      <span class="booking-text">Book your app today</span>
-      <span class="booking-phone">203-788-7260</span>
-    </div>
-
-    <!-- INSTAGRAM — clean @hairartbycidia -->
-    <div class="instagram-row">
-      <div class="instagram-icon">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.309.975.975 1.247 2.242 1.309 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.309 3.608-.975.975-2.242 1.247-3.608 1.309-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.309-.975-.975-1.247-2.242-1.309-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.309-3.608.975-.975 2.242-1.247 3.608-1.309 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.648.64 2.365 1.923 1.082 3.206.6 4.755.515 6.61.457 7.89.443 8.299.443 12s.014 4.108.072 5.39c.085 1.855.568 3.404 1.85 4.687 1.283 1.283 2.832 1.765 4.687 1.85 1.28.058 1.689.072 5.39.072 3.702 0 4.11-.014 5.39-.072 1.855-.085 3.404-.568 4.687-1.85 1.283-1.283 1.765-2.832 1.85-4.687.058-1.282.072-1.69.072-5.39 0-3.702-.014-4.11-.072-5.39-.085-1.855-.568-3.404-1.85-4.687C20.797.64 19.248.157 17.392.072 16.11.014 15.702 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/>
-        </svg>
+    <!-- MIRROR LAYOUT: video on left, content on right -->
+    <div class="mirror-container">
+      
+      <!-- LEFT: VIDEO (mirror style - shows face/body) -->
+      <div class="video-mirror">
+        <div class="video-wrapper">
+          <video autoplay loop muted playsinline controls>
+            <source src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/hair-style.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
-      <span class="instagram-handle"><a href="#" target="_blank">@hairartbycidia</a></span>
-    </div>
-
-    <!-- NAVIGATION -->
-    <div class="nav-grid">
-      <div class="nav-btn">Home</div>
-      <div class="nav-btn">About</div>
-      <div class="nav-btn">Services</div>
-      <div class="nav-btn curly">Curly hair</div>
-      <div class="nav-btn">Team</div>
-      <div class="nav-btn">Gallery</div>
-      <div class="nav-btn">Contact</div>
-    </div>
-
-    <!-- BOTTOM ROW: call/text + phone -->
-    <div class="bottom-links">
-      <div class="chip">📞 call/text</div>
-      <div class="chip" style="background:#FEF0F6; border-color:#E9A9C2; color:#834461;">203-788-7260</div>
-    </div>
-
-    <!-- ADDRESS (only once) -->
-    <div class="address-block">
-      20 Church Hill Rd, Newtown, CT
-    </div>
-  </div>
+      
+      <!-- RIGHT: ALL CONTENT -->
+      <div class="content-side">
+        
+        <!-- Brand as requested: "Cidia's HAIR & ART STUDIO" -->
+        <div class="brand-main">
+          <h1>Cidia's</h1>
+          <div class="hair-art">HAIR & ART STUDIO</div>
+        </div>
+        
+        <!-- Tagline -->
+        <div class="tagline-mirror">ELEGANT AND MODERN SALON</div>
+        
+        <!-- Main headline -->
+        <div class="dreams-mirror">Hair of your dreams</div>
+        
+        <!-- Service description -->
+        <div class="service-desc-mirror">
+          <p>OUTSTANDING EXPERIENCE AND</p>
+          <p>EXCEPTIONAL LEVEL OF SERVICE</p>
+          <p>TO CLIENTS, WHATEVER THEIR</p>
+          <p>REQUIREMENTS MAY BE</p>
+        </div>
+        
+        <!-- Booking card -->
+        <div class="booking-row">
+          <span class="booking-text-mirror">Book your app today</span>
+          <span class="booking-phone-mirror">203-788-7260</span>
+        </div>
+        
+        <!-- Instagram (minimal) -->
+        <div class="instagram-mirror">
+          <div class="instagram-icon-small">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.309.975.975 1.247 2.242 1.309 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.309 3.608-.975.975-2.242 1.247-3.608 1.309-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.309-.975-.975-1.247-2.242-1.309-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.309-3.608.975-.975 2.242-1.247 3.608-1.309 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.648.64 2.365 1.923 1.082 3.206.6 4.755.515 6.61.457 7.89.443 8.299.443 12s.014 4.108.072 5.39c.085 1.855.568 3.404 1.85 4.687 1.283 1.283 2.832 1.765 4.687 1.85 1.28.058 1.689.072 5.39.072 3.702 0 4.11-.014 5.39-.072 1.855-.085 3.404-.568 4.687-1.85 1.283-1.283 1.765-2.832 1.85-4.687.058-1.282.072-1.69.072-5.39 0-3.702-.014-4.11-.072-5.39-.085-1.855-.568-3.404-1.85-4.687C20.797.64 19.248.157 17.392.072 16.11.014 15.702 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/>
+            </svg>
+          </div>
+          <span class="instagram-handle-mirror">@hairartbycidia</span>
+        </div>
+        
+        <!-- Navigation (one time) -->
+        <div class="nav-mirror">
+          <div class="nav-btn-mirror">Home</div>
+          <div class="nav-btn-mirror">About</div>
+          <div class="nav-btn-mirror">Services</div>
+          <div class="nav-btn-mirror curly">Curly hair</div>
+          <div class="nav-btn-mirror">Team</div>
+          <div class="nav-btn-mirror">Gallery</div>
+          <div class="nav-btn-mirror">Contact</div>
+        </div>
+        
+        <!-- Bottom row: call/text + address (no duplicate phone) -->
+        <div class="bottom-mirror">
+          <div class="chip-mirror">📞 call/text</div>
+          <div class="address-mirror">20 Church Hill Rd, Newtown, CT</div>
+        </div>
+        
+      </div> <!-- end content-side -->
+    </div> <!-- end mirror-container -->
+  </div> <!-- end kiosk -->
 </body>
 </html>
