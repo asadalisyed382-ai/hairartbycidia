@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Cidia's · mobile perfect · one line headline · centered insta</title>
+  <title>Cidia's · mobile perfect · insta left desktop · address one line</title>
   <style>
     * {
       margin: 0;
@@ -107,7 +107,6 @@
       border: 1px solid #E6B7C9;
     }
 
-    /* === UPDATED: one line on mobile for "Hair of your dreams" === */
     .dreams-mirror {
       font-size: 3.2rem;
       font-weight: 450;
@@ -118,7 +117,7 @@
       font-style: italic;
       border-bottom: 2px solid #F2C3D4;
       padding-bottom: 12px;
-      white-space: nowrap; /* force one line on desktop */
+      white-space: nowrap;
     }
 
     .service-desc-mirror {
@@ -180,13 +179,12 @@
       gap: 6px;
     }
 
-    /* INSTAGRAM - updated to be centered under booking row */
+    /* INSTAGRAM - desktop: left-aligned (default) */
     .instagram-mirror {
       display: flex;
       align-items: center;
-      justify-content: center;  /* center horizontally */
       gap: 10px;
-      margin: 12px auto 14px;    /* auto centers the block */
+      margin: 12px 0 14px;      /* left aligned */
       padding: 8px 18px;
       background: #FEF0F6;
       border-radius: 50px;
@@ -252,7 +250,7 @@
       box-shadow: 0 4px 0 #F5B8D1;
     }
 
-    /* BOTTOM row: call/text+phone and address with ZIP */
+    /* BOTTOM row */
     .bottom-mirror {
       display: flex;
       flex-wrap: wrap;
@@ -276,7 +274,7 @@
       white-space: nowrap;
     }
 
-    /* ADDRESS with zip code 06470 - trying to keep one line */
+    /* ADDRESS with zip - desktop one line */
     .address-mirror {
       background: #FEF0F6;
       border-radius: 60px;
@@ -287,8 +285,8 @@
       box-shadow: 0 5px 0 #FACFDF;
       text-align: center;
       flex: 1;
-      min-width: 260px;
-      white-space: nowrap;      /* keep on one line if possible */
+      min-width: 280px;
+      white-space: nowrap;      /* keep one line on desktop */
     }
 
     /* ========== MOBILE FIXES ========== */
@@ -341,18 +339,25 @@
       
       .address-mirror {
         width: 100%;
-        white-space: normal;    /* allow wrap on very small if needed */
-        word-break: keep-all;
+        white-space: nowrap;     /* force one line on mobile */
+        overflow-x: auto;        /* allow scroll if needed, but keep one line */
+        -webkit-overflow-scrolling: touch;
+        display: block;
       }
     }
 
-    /* small phones - force "Hair of your dreams" to stay one line */
+    /* small phones - force "Hair of your dreams" one line, insta center on mobile only */
     @media (max-width: 600px) {
       .dreams-mirror {
-        font-size: 2.4rem;        /* adjust size to fit */
+        font-size: 2.4rem;
         white-space: nowrap;
         overflow: visible;
-        text-overflow: clip;
+      }
+      
+      /* INSTAGRAM CENTERED ONLY ON MOBILE */
+      .instagram-mirror {
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
@@ -371,7 +376,7 @@
       }
       
       .dreams-mirror {
-        font-size: 2rem;          /* even smaller to fit one line */
+        font-size: 2rem;
         white-space: nowrap;
       }
       
@@ -402,11 +407,11 @@
       .address-mirror {
         font-size: 1rem;
         padding: 10px 16px;
-        white-space: normal;      /* allow zip to wrap if needed */
+        white-space: nowrap;      /* stays one line with scroll if too long */
+        overflow-x: auto;
       }
     }
 
-    /* for very narrow (under 400) keep headline one line with smaller font */
     @media (max-width: 400px) {
       .dreams-mirror {
         font-size: 1.8rem;
@@ -441,7 +446,7 @@
         
         <div class="tagline-mirror">ELEGANT AND MODERN SALON</div>
         
-        <!-- NOW FORCED ONE LINE ON MOBILE -->
+        <!-- ONE LINE ON MOBILE -->
         <div class="dreams-mirror">Hair of your dreams</div>
         
         <div class="service-desc-mirror">
@@ -459,7 +464,7 @@
           </div>
         </div>
         
-        <!-- INSTAGRAM - NOW CENTERED (margin auto, justify center) -->
+        <!-- INSTAGRAM - left on desktop, centered on mobile (via media query) -->
         <div class="instagram-mirror">
           <div class="instagram-icon-small">
             <svg viewBox="0 0 24 24">
@@ -480,7 +485,7 @@
           <div class="nav-btn-mirror">Contact</div>
         </div>
         
-        <!-- BOTTOM: call/text + phone AND address WITH ZIP CODE 06470 -->
+        <!-- BOTTOM: call/text + phone AND address WITH ZIP CODE 06470 (one line on mobile) -->
         <div class="bottom-mirror">
           <div class="call-text-phone">
             <span>📞 call/text</span>
