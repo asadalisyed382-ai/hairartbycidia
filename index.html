@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Cidia's · mirror layout · mobile friendly</title>
+  <title>Cidia's · mirror · mobile perfected · full head</title>
   <style>
     * {
       margin: 0;
@@ -11,14 +11,14 @@
       box-sizing: border-box;
     }
 
-    /* ---------- 2026 PALETTE (same warm blush) ---------- */
+    /* ---------- same warm blush palette ---------- */
     body {
       min-height: 100vh;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 12px;
       margin: 0;
       background: #F2D7DE;
       background-image: radial-gradient(circle at 15% 30%, rgba(245, 200, 215, 0.4) 0%, transparent 50%),
@@ -26,77 +26,71 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* KIOSK CARD - now flex for mirror layout */
+    /* KIOSK CARD - softer corners, airy */
     .kiosk {
-      max-width: 1200px;
+      max-width: 1100px;
       width: 100%;
       background: #FFFFFF;
-      border-radius: 48px;
-      box-shadow: 0 30px 50px -20px rgba(140, 100, 110, 0.3);
+      border-radius: 40px;
+      box-shadow: 0 25px 40px -18px rgba(120, 80, 95, 0.3);
       border: 1px solid #E9BACB;
-      padding: 32px;
-      position: relative;
-      backdrop-filter: blur(2px);
+      padding: 28px 24px;
     }
 
-    /* Mirror layout: side by side on desktop, stacked on mobile */
+    /* MIRROR CONTAINER - side by side on desktop, stacked on mobile */
     .mirror-container {
       display: flex;
       flex-direction: row;
-      gap: 32px;
+      gap: 28px;
       align-items: center;
     }
 
-    /* Left side - VIDEO (mirror style) */
+    /* LEFT VIDEO - with fix to show full head (object-fit contain + background) */
     .video-mirror {
       flex: 1;
-      min-width: 0; /* prevents overflow */
+      min-width: 0; /* flex overflow prevention */
     }
 
     .video-wrapper {
       width: 100%;
       border-radius: 32px;
       overflow: hidden;
-      box-shadow: 0 20px 30px -10px rgba(140, 90, 110, 0.3);
+      box-shadow: 0 20px 28px -12px rgba(140, 90, 110, 0.25);
       border: 3px solid #F5C4D6;
-      background: #FDF0F5;
-      aspect-ratio: 4 / 5; /* portrait style for face/body shots */
+      background: #FCE4EC;  /* matches video background if transparent */
+      /* taller aspect ratio to show full head/hair */
+      aspect-ratio: 3 / 4;
     }
 
     .video-wrapper video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      /* contain ensures full head/body is visible (no cropping) */
+      object-fit: contain;
+      background: #FCE4EC;   /* soft pink fill for any empty space */
       display: block;
-      background: #FCE4EC;
     }
 
-    /* Right side - CONTENT */
+    /* RIGHT CONTENT */
     .content-side {
       flex: 1;
       min-width: 0;
-      padding: 8px;
     }
 
-    /* Branding - updated to "Cidia's HAIR & ART STUDIO" (all caps for ART STUDIO) */
-    .brand-main {
-      margin-bottom: 16px;
-    }
-
+    /* BRANDING - exactly "Cidia's HAIR & ART STUDIO" */
     .brand-main h1 {
-      font-size: 3.8rem;
+      font-size: 3.5rem;
       font-weight: 500;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      line-height: 1;
       color: #52303F;
       font-family: 'Playfair Display', serif;
       text-shadow: 2px 2px 0 #FDE1EC;
+      margin-bottom: 0;
     }
 
-    .brand-main .hair-art {
-      font-size: 2.2rem;
+    .hair-art {
+      font-size: 2rem;
       font-weight: 400;
-      display: block;
       color: #AC758B;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -105,71 +99,89 @@
       word-break: break-word;
     }
 
-    /* Elegant tagline */
     .tagline-mirror {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 400;
       color: #B27F92;
       background: #FDEDF3;
       display: inline-block;
-      padding: 0.5rem 1.5rem;
+      padding: 0.4rem 1.4rem;
       border-radius: 40px;
-      letter-spacing: 1.5px;
-      margin: 16px 0 12px 0;
+      letter-spacing: 1.2px;
+      margin: 14px 0 10px;
       border: 1px solid #E6B7C9;
-      text-transform: uppercase;
     }
 
-    /* Headline */
     .dreams-mirror {
-      font-size: 3.8rem;
+      font-size: 3.2rem;
       font-weight: 450;
       line-height: 1.1;
       color: #603A49;
-      margin: 20px 0 16px 0;
+      margin: 12px 0 14px;
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      letter-spacing: -0.02em;
       border-bottom: 2px solid #F2C3D4;
-      padding-bottom: 16px;
+      padding-bottom: 12px;
     }
 
-    /* Service description - smaller on mirror */
     .service-desc-mirror {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 330;
       color: #593F4A;
-      margin: 20px 0 28px 0;
+      margin: 16px 0 20px;
       border-left: 3px solid #EFAFC6;
-      padding-left: 24px;
+      padding-left: 20px;
       background: linear-gradient(to right, #FEF0F6, transparent);
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .service-desc-mirror p {
-      margin: 6px 0;
+      margin: 4px 0;
     }
 
-    /* Booking row - compact for mirror */
+    /* BOOKING CARD - now with phone next to call/text */
     .booking-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 15px;
       background: #FEF2F7;
-      border-radius: 80px;
+      border-radius: 60px;
       padding: 16px 24px;
-      margin: 24px 0 20px 0;
+      margin: 20px 0 18px;
       border: 1px solid #EEAFC5;
-      box-shadow: 0 8px 0 #FAD2E2;
+      box-shadow: 0 7px 0 #FAD2E2;
+    }
+
+    .booking-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .booking-text-mirror {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 380;
       color: #773E56;
       font-family: 'Playfair Display', serif;
+      white-space: nowrap;
+    }
+
+    .call-phone-chip {
+      background: #FFFFFF;
+      color: #9F5D79;
+      font-size: 1.6rem;
+      font-weight: 400;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid #EFA3BF;
+      box-shadow: 0 4px 0 #FAD2E2;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .booking-phone-mirror {
@@ -178,29 +190,29 @@
       font-size: 2rem;
       font-weight: 400;
       padding: 0.4rem 1.5rem;
-      border-radius: 60px;
+      border-radius: 50px;
       border: 1px solid #EFA3BF;
       box-shadow: 0 4px 0 #FAD2E2;
       white-space: nowrap;
     }
 
-    /* Instagram minimal */
+    /* INSTAGRAM */
     .instagram-mirror {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin: 16px 0;
-      padding: 10px 20px;
+      gap: 10px;
+      margin: 12px 0 14px;
+      padding: 8px 18px;
       background: #FEF0F6;
-      border-radius: 60px;
+      border-radius: 50px;
       border: 1px solid #EBB6CC;
       width: fit-content;
       box-shadow: 0 4px 0 #F4C1D4;
     }
 
     .instagram-icon-small {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       background: radial-gradient(circle at 30% 30%, #F5A9C4, #D85F8B);
       border-radius: 10px;
       display: flex;
@@ -209,27 +221,27 @@
     }
 
     .instagram-icon-small svg {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       fill: white;
     }
 
     .instagram-handle-mirror {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 400;
       color: #6F3F53;
       background: #FFFFFFD0;
-      padding: 0.3rem 1.4rem;
+      padding: 0.2rem 1.2rem;
       border-radius: 40px;
       border: 1px solid #EAA7C0;
     }
 
-    /* Navigation - grid for mobile */
+    /* NAVIGATION - fixed spacing, no overlap, mobile first */
     .nav-mirror {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 24px 0 16px 0;
+      margin: 20px 0 16px;
       justify-content: flex-start;
     }
 
@@ -237,14 +249,15 @@
       background: #FFFFFF;
       border: 1px solid #EEAFC7;
       border-radius: 40px;
-      padding: 12px 20px;
-      font-size: 1.1rem;
-      font-weight: 380;
+      padding: 10px 18px;
+      font-size: 1rem;
+      font-weight: 450;
       color: #613D4D;
       box-shadow: 0 4px 0 #FCD2E3;
       transition: all 0.1s;
       text-align: center;
       flex: 0 1 auto;
+      white-space: nowrap;
     }
 
     .nav-btn-mirror.curly {
@@ -254,37 +267,34 @@
       box-shadow: 0 4px 0 #F5B8D1;
     }
 
-    .nav-btn-mirror:active {
-      transform: translateY(3px);
-      box-shadow: 0 1px 0 #E696B5;
-    }
-
-    /* Bottom row - call/text + address */
+    /* BOTTOM row: now call/text AND phone combined, plus address */
     .bottom-mirror {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 16px;
-      margin-top: 20px;
-      justify-content: space-between;
+      gap: 12px;
+      margin-top: 16px;
     }
 
-    .chip-mirror {
+    .call-text-phone {
       background: #FEF1F7;
       border-radius: 60px;
-      padding: 14px 28px;
+      padding: 12px 24px;
       font-size: 1.3rem;
-      font-weight: 360;
+      font-weight: 400;
       color: #6A3F52;
       border: 1px solid #EEB2CA;
       box-shadow: 0 5px 0 #FCD0E2;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       white-space: nowrap;
     }
 
     .address-mirror {
       background: #FEF0F6;
       border-radius: 60px;
-      padding: 14px 28px;
+      padding: 12px 24px;
       font-size: 1.2rem;
       color: #7B4D62;
       border: 1px solid #E9B4CA;
@@ -292,74 +302,106 @@
       text-align: center;
       flex: 1;
       min-width: 240px;
+      white-space: nowrap;
     }
 
-    /* Mobile styles: stack vertically */
+    /* ========== MOBILE FIRST ENHANCEMENTS ========== */
     @media (max-width: 800px) {
       .mirror-container {
         flex-direction: column;
       }
       
       .video-wrapper {
-        max-width: 400px;
+        max-width: 320px;
         margin: 0 auto;
+        aspect-ratio: 3 / 4;  /* keeps full head visible */
+      }
+
+      /* bigger tap targets on mobile */
+      .nav-btn-mirror {
+        padding: 12px 18px;
+        font-size: 1.1rem;
+        flex: 1 1 auto;
+        min-width: 110px;
+        white-space: normal;  /* allows text wrap if extremely narrow */
+        word-break: keep-all;
       }
       
-      .brand-main h1 {
-        font-size: 3rem;
+      .nav-mirror {
+        gap: 10px;
       }
       
-      .brand-main .hair-art {
-        font-size: 1.8rem;
-      }
-      
-      .dreams-mirror {
-        font-size: 2.8rem;
-      }
-      
-      .service-desc-mirror {
-        font-size: 1.2rem;
-      }
-      
+      /* make booking row stacked but clean */
       .booking-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .bottom-mirror {
         flex-direction: column;
         align-items: stretch;
       }
       
-      .nav-mirror {
+      .booking-left {
         justify-content: center;
+      }
+      
+      .call-phone-chip {
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+      }
+      
+      .bottom-mirror {
+        flex-direction: column;
+      }
+      
+      .call-text-phone {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .address-mirror {
+        width: 100%;
+        white-space: normal;
       }
     }
 
-    /* Small mobile */
+    /* small phones */
     @media (max-width: 480px) {
       .kiosk {
-        padding: 20px;
+        padding: 18px 16px;
       }
       
       .brand-main h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
       }
       
-      .brand-main .hair-art {
-        font-size: 1.5rem;
+      .hair-art {
+        font-size: 1.6rem;
+        letter-spacing: 0.1em;
       }
       
       .dreams-mirror {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
+      }
+      
+      .service-desc-mirror {
+        font-size: 1rem;
       }
       
       .booking-text-mirror {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
       }
       
-      .booking-phone-mirror {
-        font-size: 1.5rem;
+      .call-phone-chip {
+        font-size: 1.2rem;
+      }
+      
+      .nav-btn-mirror {
+        min-width: 100px;
+        font-size: 1rem;
+        padding: 10px 12px;
+      }
+      
+      .call-text-phone {
+        font-size: 1.1rem;
+        flex-wrap: wrap;
+        white-space: normal;
       }
     }
   </style>
@@ -369,10 +411,9 @@
 </head>
 <body>
   <div class="kiosk">
-    <!-- MIRROR LAYOUT: video on left, content on right -->
     <div class="mirror-container">
       
-      <!-- LEFT: VIDEO (mirror style - shows face/body) -->
+      <!-- LEFT: VIDEO (now object-fit: contain to show full head/hair) -->
       <div class="video-mirror">
         <div class="video-wrapper">
           <video autoplay loop muted playsinline controls>
@@ -382,22 +423,18 @@
         </div>
       </div>
       
-      <!-- RIGHT: ALL CONTENT -->
+      <!-- RIGHT: CONTENT -->
       <div class="content-side">
         
-        <!-- Brand as requested: "Cidia's HAIR & ART STUDIO" -->
+        <!-- Cidia's HAIR & ART STUDIO (exact wording) -->
         <div class="brand-main">
           <h1>Cidia's</h1>
           <div class="hair-art">HAIR & ART STUDIO</div>
         </div>
         
-        <!-- Tagline -->
         <div class="tagline-mirror">ELEGANT AND MODERN SALON</div>
-        
-        <!-- Main headline -->
         <div class="dreams-mirror">Hair of your dreams</div>
         
-        <!-- Service description -->
         <div class="service-desc-mirror">
           <p>OUTSTANDING EXPERIENCE AND</p>
           <p>EXCEPTIONAL LEVEL OF SERVICE</p>
@@ -405,13 +442,16 @@
           <p>REQUIREMENTS MAY BE</p>
         </div>
         
-        <!-- Booking card -->
+        <!-- BOOKING AREA - now includes call/text right next to phone number (no duplicate) -->
         <div class="booking-row">
-          <span class="booking-text-mirror">Book your app today</span>
-          <span class="booking-phone-mirror">203-788-7260</span>
+          <div class="booking-left">
+            <span class="booking-text-mirror">Book your app today</span>
+            <span class="call-phone-chip">📞 203-788-7260</span>
+          </div>
+          <!-- optional second phone removed to avoid duplication -->
         </div>
         
-        <!-- Instagram (minimal) -->
+        <!-- INSTAGRAM (minimal) -->
         <div class="instagram-mirror">
           <div class="instagram-icon-small">
             <svg viewBox="0 0 24 24">
@@ -421,7 +461,7 @@
           <span class="instagram-handle-mirror">@hairartbycidia</span>
         </div>
         
-        <!-- Navigation (one time) -->
+        <!-- NAVIGATION - spaced properly, no overlap -->
         <div class="nav-mirror">
           <div class="nav-btn-mirror">Home</div>
           <div class="nav-btn-mirror">About</div>
@@ -432,9 +472,12 @@
           <div class="nav-btn-mirror">Contact</div>
         </div>
         
-        <!-- Bottom row: call/text + address (no duplicate phone) -->
+        <!-- BOTTOM: combined call/text & phone + address (no extra phone) -->
         <div class="bottom-mirror">
-          <div class="chip-mirror">📞 call/text</div>
+          <div class="call-text-phone">
+            <span>📞 call/text</span>
+            <span>203-788-7260</span>
+          </div>
           <div class="address-mirror">20 Church Hill Rd, Newtown, CT</div>
         </div>
         
