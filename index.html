@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Cidia's · studio · video + clean insta + address</title>
+  <title>Cidia's · studio · video fixed · clean</title>
   <style>
     * {
       margin: 0;
@@ -11,9 +11,8 @@
       box-sizing: border-box;
     }
 
-    /* ---------- 2026 PALETTE (exact from previous approved code) ---------- 
+    /* ---------- 2026 PALETTE (exact same as previous) ---------- 
        Background: #F2D7DE (slightly darker blush)
-       Kiosk card: white with soft pink shading
     */
     body {
       min-height: 100vh;
@@ -65,7 +64,7 @@
       z-index: 2;
     }
 
-    /* VIDEO CONTAINER — top header */
+    /* VIDEO CONTAINER — with fallback */
     .video-header {
       width: 100%;
       border-radius: 32px;
@@ -73,15 +72,16 @@
       margin-bottom: 30px;
       box-shadow: 0 15px 25px -10px rgba(140, 90, 110, 0.3);
       border: 2px solid #F5C4D6;
-      background: #FDF0F5; /* fallback while video loads */
-      aspect-ratio: 16 / 9; /* adjusts height relative to width */
+      background: #FDF0F5;
+      aspect-ratio: 16 / 9;
     }
 
     .video-header video {
       width: 100%;
       height: 100%;
-      object-fit: cover;      /* ensures video fills nicely */
+      object-fit: cover;
       display: block;
+      background: #FCE4EC; /* soft pink while loading */
     }
 
     /* TYPOGRAPHY */
@@ -203,7 +203,7 @@
       box-shadow: 0 1px 0 #E696B4;
     }
 
-    /* INSTAGRAM — only @hairartbycidia (clean) */
+    /* INSTAGRAM — only @hairartbycidia */
     .instagram-row {
       display: flex;
       align-items: center;
@@ -256,7 +256,7 @@
       color: inherit;
     }
 
-    /* NAVIGATION (one time) */
+    /* NAVIGATION */
     .nav-grid {
       display: flex;
       flex-wrap: wrap;
@@ -297,7 +297,7 @@
       box-shadow: 0 1px 0 #E696B5;
     }
 
-    /* bottom row: call/text + phone (only once) */
+    /* bottom row: call/text + phone */
     .bottom-links {
       display: flex;
       flex-wrap: wrap;
@@ -328,7 +328,7 @@
       box-shadow: 0 1px 0 #E89FBC;
     }
 
-    /* ADDRESS (replaces duplicate phone footer) */
+    /* ADDRESS block */
     .address-block {
       text-align: center;
       margin-top: 25px;
@@ -343,18 +343,7 @@
       box-shadow: 0 6px 0 #FACFDF;
       font-family: 'Inter', sans-serif;
       letter-spacing: 0.3px;
-      line-height: 1.4;
     }
-
-    .address-block a {
-      color: #A5486E;
-      text-decoration: none;
-      font-weight: 400;
-      border-bottom: 1px solid #D68FAD;
-    }
-
-    /* No footer menu repeated — one time is fine (already in nav-grid) */
-    /* so we remove the .footer-note completely */
 
     /* responsive */
     @media (max-width: 700px) {
@@ -410,12 +399,14 @@
 </head>
 <body>
   <div class="kiosk">
-    <!-- VIDEO HEADER (top) — replace src with your github mp4 path -->
+    <!-- VIDEO HEADER — FIXED PATH: raw.githubusercontent.com URL -->
     <div class="video-header">
-      <video autoplay loop muted playsinline>
-        <source src="https://raw.githubusercontent.com/yourusername/your-repo/main/hair-style.mp4" type="video/mp4">
-        <!-- fallback text if video doesn't load -->
-        Your browser does not support the video tag. ✨ hair animation
+      <video autoplay loop muted playsinline controls style="width:100%; height:100%; object-fit:cover;">
+        <!-- CORRECTED RAW GITHUB URL (your screenshot shows the repo and file) -->
+        <source src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/hair-style.mp4" type="video/mp4">
+        <!-- Fallback text and additional formats for compatibility -->
+        Your browser does not support the video tag. 
+        <a href="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/hair-style.mp4">Download the hairstyle video</a>
       </video>
     </div>
 
@@ -436,13 +427,13 @@
       <p>REQUIREMENTS MAY BE</p>
     </div>
 
-    <!-- BOOKING CARD (phone only once here) -->
+    <!-- BOOKING CARD -->
     <div class="booking-card" role="button" tabindex="0" aria-label="Book appointment call 203-788-7260">
       <span class="booking-text">Book your app today</span>
       <span class="booking-phone">203-788-7260</span>
     </div>
 
-    <!-- INSTAGRAM — clean, only @hairartbycidia (no extra text) -->
+    <!-- INSTAGRAM — clean @hairartbycidia -->
     <div class="instagram-row">
       <div class="instagram-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -452,7 +443,7 @@
       <span class="instagram-handle"><a href="#" target="_blank">@hairartbycidia</a></span>
     </div>
 
-    <!-- NAVIGATION (one time, as requested) -->
+    <!-- NAVIGATION -->
     <div class="nav-grid">
       <div class="nav-btn">Home</div>
       <div class="nav-btn">About</div>
@@ -463,19 +454,16 @@
       <div class="nav-btn">Contact</div>
     </div>
 
-    <!-- BOTTOM ROW: call/text + phone (only once) -->
+    <!-- BOTTOM ROW: call/text + phone -->
     <div class="bottom-links">
       <div class="chip">📞 call/text</div>
       <div class="chip" style="background:#FEF0F6; border-color:#E9A9C2; color:#834461;">203-788-7260</div>
     </div>
 
-    <!-- ADDRESS (replaces all duplicate phone mentions) -->
+    <!-- ADDRESS (only once) -->
     <div class="address-block">
       20 Church Hill Rd, Newtown, CT
     </div>
-
-    <!-- NO footer menu, no extra phone — clean! -->
   </div>
-  <!-- No floating corner note -->
 </body>
 </html>
