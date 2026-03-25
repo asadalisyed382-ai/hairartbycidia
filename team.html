@@ -40,20 +40,23 @@
       padding: 28px 24px 32px;
     }
 
-    /* POSTER IMAGE - centered, full width within container, like hero image */
+    /* POSTER IMAGE - full width, shows completely on both mobile and desktop */
     .poster-hero {
       width: 100%;
       background: #FCE4EC;
       line-height: 0;
       border-bottom: 1px solid #F0CCDC;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .poster-hero img {
       width: 100%;
       height: auto;
       display: block;
-      object-fit: cover;
-      max-height: 500px;
-      object-position: center 20%;
+      object-fit: contain;
+      max-height: 600px;
+      background: #FCE4EC;
     }
 
     /* brand header - matches landing page */
@@ -281,7 +284,7 @@
       box-shadow: 0 3px 0 #F5B8D1;
     }
 
-    /* contact strip - matches landing page */
+    /* contact strip - matches landing page with single line on mobile */
     .contact-strip-mobile {
       display: flex;
       flex-wrap: wrap;
@@ -300,6 +303,7 @@
       align-items: center;
       gap: 8px;
       transition: transform 0.05s ease;
+      white-space: nowrap;
     }
     .call-strip:active {
       transform: translateY(1px);
@@ -313,6 +317,7 @@
       border: 1px solid #E9B4CA;
       font-size: 1rem;
       flex: 1;
+      white-space: nowrap;
     }
 
     /* responsive adjustments - matches landing page */
@@ -328,11 +333,21 @@
       .nav-mirror {
         justify-content: center;
       }
+    }
+
+    /* Mobile adjustments - keep address on one line */
+    @media (max-width: 650px) {
       .contact-strip-mobile {
         flex-direction: column;
       }
       .call-strip {
         justify-content: center;
+        white-space: nowrap;
+      }
+      .address-strip {
+        white-space: nowrap;
+        overflow-x: auto;
+        text-align: center;
       }
     }
 
@@ -370,15 +385,31 @@
         font-size: 0.9rem;
         padding: 8px 18px;
       }
+      .address-strip {
+        white-space: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    /* Extra small devices - ensure address stays in single line with scroll if needed */
+    @media (max-width: 480px) {
+      .address-strip {
+        white-space: nowrap;
+        overflow-x: auto;
+        text-align: center;
+        justify-content: center;
+        display: block;
+      }
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="app-container">
-  <!-- FULL SIZE POSTER IMAGE - centered, full width, balanced sides -->
+  <!-- FULL SIZE POSTER IMAGE - shows completely on all devices -->
   <div class="poster-hero">
-    <img src="image/cidia.jpeg" alt="Cidia - Founder & Master Hair Artist" onerror="this.src='https://placehold.co/1100x500/FCE4EC/AF7B92?text=Cidia+Hair+Art'">
+    <img src="image/cidia.jpeg" alt="Cidia - CEO, Founder & Artist" onerror="this.src='https://placehold.co/1100x600/FCE4EC/AF7B92?text=Cidia+Hair+Art'">
   </div>
 
   <div class="content-pad">
@@ -394,7 +425,7 @@
     <div class="artist-card">
       <div class="owner-bio">
         <div class="owner-name">Cidia</div>
-        <div class="owner-title">Founder & Master Hair Artist</div>
+        <div class="owner-title">CEO, Founder & Artist</div>
         
         <div class="passion-quote">
           “I’m passionate about creating looks that boost confidence and reflect individuality.”
@@ -447,7 +478,7 @@
       <div class="nav-btn-mirror">Contact</div>
     </div>
 
-    <!-- contact strip - matches landing page -->
+    <!-- contact strip - address stays on one line on mobile -->
     <div class="contact-strip-mobile">
       <div class="call-strip" id="footerCallBtn">📞 call/text 203-788-7260</div>
       <div class="address-strip">📍 20 Church Hill Rd, Newtown, CT 06470</div>
@@ -499,7 +530,7 @@
       } else if (buttonText === 'curly hair') {
         alert('🌀 Curly hair experts: custom cuts & hydration treatments! Call 203-788-7260');
       } else if (buttonText === 'team') {
-        alert('✨ You\'re on the Team page — meet Cidia, founder & artist');
+        alert('✨ You\'re on the Team page — meet Cidia, CEO, Founder & Artist');
       } else if (buttonText === 'gallery') {
         window.open('https://www.instagram.com/hairartbycidia', '_blank');
       } else if (buttonText === 'contact') {
