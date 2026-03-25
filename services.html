@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <meta name="format-detection" content="telephone=no">
-  <title>Cidia's · Services | Hair Extensions, Color & Haircuts</title>
+  <title>Cidia's Hair & Art Studio — Services</title>
   <style>
     * {
       margin: 0;
@@ -13,522 +13,575 @@
     }
 
     body {
-      background: #FEF5F8;
+      min-height: 100vh;
+      width: 100%;
+      background: #F2D7DE;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      color: #2D1F28;
-      line-height: 1.4;
+      padding: 20px 16px;
     }
 
-    /* HEADER with background image (header.jpeg) */
-    .hero-header {
-      background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/header.jpeg');
-      background-size: cover;
-      background-position: center 30%;
-      background-repeat: no-repeat;
-      min-height: 55vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      border-bottom-left-radius: 32px;
-      border-bottom-right-radius: 32px;
-      margin-bottom: 32px;
-    }
-
-    .hero-content {
-      padding: 24px 20px;
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(2px);
-      border-radius: 48px;
-      margin: 20px;
-    }
-
-    .hero-content h1 {
-      font-size: 3.8rem;
-      font-weight: 600;
-      font-family: 'Playfair Display', serif;
-      color: white;
-      text-shadow: 2px 2px 12px rgba(0,0,0,0.4);
-      letter-spacing: -0.5px;
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      color: #FFF9F0;
-      font-weight: 400;
-      margin-top: 8px;
-      letter-spacing: 1px;
-    }
-
-    /* container */
-    .services-container {
-      max-width: 1280px;
+    .services-kiosk {
+      max-width: 1400px;
+      width: 100%;
       margin: 0 auto;
-      padding: 0 24px 48px 24px;
+      background: #FFFFFF;
+      border-radius: 44px;
+      box-shadow: 0 25px 40px -18px rgba(90, 55, 70, 0.28);
+      border: 1px solid #E9BACB;
+      overflow: hidden;
     }
 
-    /* section title */
-    .section-title {
-      text-align: center;
-      margin: 48px 0 32px;
+    /* FULL WIDTH HEADER */
+    .hero-header {
+      width: 100%;
+      max-height: 480px;
+      overflow: hidden;
+      background: #FCE4EC;
     }
-    .section-title h2 {
-      font-size: 2.8rem;
+    .hero-header img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    .services-inner {
+      padding: 32px 32px 40px;
+    }
+
+    .top-brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+      border-bottom: 2px solid #F5C4D6;
+      padding-bottom: 12px;
+    }
+    .brand-title h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #52303F;
       font-family: 'Playfair Display', serif;
-      color: #7A4C62;
-      border-bottom: 3px solid #F1C0D4;
-      display: inline-block;
-      padding-bottom: 10px;
+    }
+    .brand-title span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #AC758B;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .services-tag {
+      background: #FDEDF3;
+      padding: 6px 20px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #9F5D79;
+      border: 1px solid #E6B7C9;
     }
 
-    /* service cards grid */
     .services-grid {
       display: flex;
       flex-direction: column;
-      gap: 48px;
+      gap: 56px;
+      margin-top: 32px;
     }
 
     .service-card {
-      background: white;
-      border-radius: 48px;
+      background: #FEFCFD;
+      border-radius: 40px;
+      box-shadow: 0 8px 20px rgba(128, 85, 100, 0.1);
+      border: 1px solid #F0CCDC;
       overflow: hidden;
-      box-shadow: 0 20px 35px -15px rgba(100, 60, 80, 0.15);
-      transition: all 0.25s ease;
-      border: 1px solid #FAD9E8;
     }
 
-    .card-inner {
+    .service-card-inner {
       display: flex;
-      flex-wrap: wrap;
-      align-items: stretch;
+      flex-direction: column;
+      gap: 0;
     }
 
-    /* image side */
-    .card-media {
-      flex: 1.2;
-      min-width: 260px;
-      background: #FEF0F6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .card-media img {
+    /* FULL SIZE IMAGE GALLERY - NO CROPPING */
+    .service-gallery {
       width: 100%;
-      height: auto;
-      border-radius: 32px;
-      object-fit: cover;
-      box-shadow: 0 12px 24px -12px rgba(0,0,0,0.2);
+      background: #FFF6FA;
+      padding: 28px 28px 20px 28px;
+      border-bottom: 1px solid #F2DAE6;
+    }
+
+    /* Horizontal scroll gallery for full view without cropping */
+    .gallery-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 12px;
+      scrollbar-width: thin;
+    }
+    .gallery-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .gallery-scroll::-webkit-scrollbar-track {
+      background: #F2DAE6;
+      border-radius: 10px;
+    }
+    .gallery-scroll::-webkit-scrollbar-thumb {
+      background: #D89AB3;
+      border-radius: 10px;
+    }
+
+    .gallery-item {
+      flex: 0 0 auto;
+      width: 280px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #F4DAE4;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
       transition: transform 0.2s;
     }
-
-    .card-media img:hover {
+    .gallery-item:hover {
       transform: scale(1.02);
     }
-
-    /* content side */
-    .card-content {
-      flex: 1.5;
-      padding: 32px 36px;
-      background: white;
+    .gallery-item img {
+      width: 100%;
+      height: 320px;
+      object-fit: contain;
+      background: #F9EAF0;
+      display: block;
     }
 
-    .card-content h3 {
+    /* For color section - 4 images in a row with full visibility */
+    .color-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .color-item {
+      flex: 1 1 calc(25% - 20px);
+      min-width: 180px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #F4DAE4;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .color-item:hover {
+      transform: scale(1.02);
+    }
+    .color-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: contain;
+      background: #F9EAF0;
+      display: block;
+    }
+
+    .service-content {
+      padding: 28px 32px 32px 32px;
+    }
+
+    .service-icon {
+      font-size: 2.8rem;
+      margin-bottom: 8px;
+    }
+    .service-title {
       font-size: 2.2rem;
+      font-weight: 600;
       font-family: 'Playfair Display', serif;
-      color: #B35D7F;
-      margin-bottom: 18px;
-      letter-spacing: -0.3px;
+      color: #663D52;
+      margin-bottom: 14px;
+      border-left: 4px solid #EFAFC6;
+      padding-left: 20px;
     }
-
     .highlight-text {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: #8F4B6B;
-      background: #FEF2F8;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #AD5F7E;
+      background: #FEF0F6;
       display: inline-block;
-      padding: 6px 18px;
+      padding: 8px 20px;
       border-radius: 40px;
       margin-bottom: 20px;
-      border-left: 4px solid #EFAFC6;
     }
-
-    .service-description {
-      color: #3D2A34;
+    .desc-text {
+      color: #3F2C36;
+      line-height: 1.6;
       font-size: 1rem;
-      line-height: 1.55;
       margin-bottom: 20px;
     }
-
-    .service-description p {
+    .feature-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 16px 0 10px;
+    }
+    .feature-list li {
       margin-bottom: 12px;
-    }
-
-    .feature-badge {
-      background: #FEF0F6;
-      border-radius: 28px;
-      padding: 10px 16px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #B15479;
-      margin-top: 12px;
-      border: 1px solid #F0C2D6;
-    }
-
-    /* gallery for color + haircut images (multiple pics) */
-    .gallery-mini {
       display: flex;
+      align-items: flex-start;
       gap: 12px;
-      margin-top: 20px;
-      flex-wrap: wrap;
+      font-size: 1rem;
+      color: #5D3D4B;
     }
-    .gallery-mini img {
-      width: calc(33% - 8px);
-      min-width: 85px;
-      border-radius: 20px;
-      object-fit: cover;
-      aspect-ratio: 1 / 1;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      transition: 0.2s;
-      cursor: pointer;
-    }
-    .gallery-mini img:hover {
-      transform: scale(1.03);
+    .feature-list li::before {
+      content: "✨";
+      font-size: 1.2rem;
     }
 
-    /* custom style for extensions specific tag */
-    .extension-note {
-      background: #FDF2F9;
-      border-radius: 28px;
-      padding: 12px 20px;
-      font-weight: 500;
-      color: #9F5475;
-      margin-top: 18px;
-    }
-
-    /* navigation bar (same style as landing) */
-    .nav-mirror {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin: 32px auto 24px;
-      max-width: 900px;
-    }
-    .nav-btn-mirror {
-      background: white;
-      border: 1px solid #EEAFC7;
+    /* Booking Bar */
+    .booking-cta-bar {
+      margin-top: 32px;
+      background: #FEF2F7;
       border-radius: 60px;
-      padding: 12px 24px;
-      font-weight: 500;
-      color: #613D4D;
-      box-shadow: 0 3px 0 #FAD2E2;
-      transition: 0.1s;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 0.95rem;
-      cursor: pointer;
-    }
-    .nav-btn-mirror.curly {
-      background: #FEF0F7;
-      border-color: #E999B8;
-      color: #8F4667;
-    }
-    .bottom-info {
+      padding: 18px 28px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      background: #FEF2F8;
-      border-radius: 60px;
-      padding: 18px 28px;
-      margin-top: 48px;
-      gap: 20px;
-      border: 1px solid #EEB2CA;
+      gap: 16px;
+      border: 1px solid #EEAFC5;
+      box-shadow: 0 5px 0 #FAD2E2;
     }
-    .call-phone {
-      font-size: 1.2rem;
+    .booking-text {
+      font-size: 1.4rem;
       font-weight: 500;
+      font-family: 'Playfair Display', serif;
+      color: #773E56;
+    }
+    .phone-chip {
       background: white;
-      padding: 10px 20px;
+      padding: 10px 26px;
       border-radius: 40px;
+      font-weight: 500;
+      border: 1px solid #EFA3BF;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    .instagram-mini {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #FEF0F6;
+      padding: 8px 20px;
+      border-radius: 50px;
+      border: 1px solid #EBB6CC;
+      cursor: pointer;
+    }
+    .insta-icon {
+      width: 34px;
+      height: 34px;
+      background: radial-gradient(circle at 30% 30%, #F5A9C4, #D85F8B);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .insta-icon svg {
+      width: 20px;
+      fill: white;
+    }
+    .nav-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 28px 0 20px;
+    }
+    .nav-pill {
+      background: #FFFFFF;
+      border: 1px solid #EEAFC7;
+      border-radius: 40px;
+      padding: 10px 22px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #613D4D;
+      box-shadow: 0 3px 0 #FCD2E3;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+    .nav-pill.active-service {
+      background: #FEF0F7;
+      border-color: #E999B8;
+      color: #8F4667;
+      box-shadow: 0 3px 0 #F5B8D1;
+    }
+    .contact-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .call-box {
+      background: #FEF1F7;
+      border-radius: 60px;
+      padding: 12px 28px;
+      font-weight: 500;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       cursor: pointer;
+      border: 1px solid #EEB2CA;
+      box-shadow: 0 4px 0 #FCD0E2;
     }
-    .address {
-      font-size: 1rem;
-      color: #7B4D62;
+    .address-box {
+      background: #FEF0F6;
+      border-radius: 60px;
+      padding: 12px 28px;
+      border: 1px solid #E9B4CA;
+      box-shadow: 0 4px 0 #FACFDF;
+      flex: 1;
+      text-align: center;
+      font-weight: 450;
     }
 
-    /* mobile responsiveness */
-    @media (max-width: 850px) {
-      .card-inner {
-        flex-direction: column;
+    @media (max-width: 900px) {
+      .services-inner {
+        padding: 20px 20px 32px;
       }
-      .card-media {
-        padding: 20px;
+      .gallery-item {
+        width: 240px;
       }
-      .card-content {
-        padding: 28px 24px;
+      .gallery-item img {
+        height: 280px;
       }
-      .hero-content h1 {
-        font-size: 2.6rem;
+      .color-item {
+        min-width: 160px;
       }
-      .section-title h2 {
-        font-size: 2.2rem;
+      .color-item img {
+        height: 240px;
       }
-      .card-content h3 {
+      .service-title {
         font-size: 1.9rem;
       }
-      .gallery-mini img {
-        width: calc(33% - 8px);
+      .booking-cta-bar {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .gallery-item {
+        width: 220px;
+      }
+      .gallery-item img {
+        height: 260px;
+      }
+      .color-item {
+        min-width: calc(50% - 20px);
+      }
+      .color-item img {
+        height: 260px;
+      }
+      .color-grid {
+        gap: 16px;
+      }
+      .service-title {
+        font-size: 1.7rem;
       }
     }
 
     @media (max-width: 550px) {
-      .services-container {
-        padding: 0 16px 40px 16px;
+      .gallery-item {
+        width: 200px;
       }
-      .hero-header {
-        min-height: 45vh;
+      .gallery-item img {
+        height: 240px;
       }
-      .hero-content h1 {
-        font-size: 2rem;
+      .color-item img {
+        height: 220px;
       }
-      .nav-btn-mirror {
-        padding: 8px 16px;
-        font-size: 0.85rem;
+      .service-gallery {
+        padding: 20px;
       }
-      .card-content h3 {
-        font-size: 1.7rem;
-      }
-      .highlight-text {
-        font-size: 1rem;
-      }
-      .bottom-info {
-        flex-direction: column;
-        text-align: center;
-      }
-      .gallery-mini img {
-        width: calc(50% - 8px);
-      }
-    }
-
-    /* instagram style link (optional but consistent) */
-    .instagram-footer {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #FEF0F6;
-      padding: 6px 18px;
-      border-radius: 40px;
-      cursor: pointer;
-    }
-    .instagram-footer span {
-      font-size: 0.9rem;
-      font-weight: 500;
     }
   </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<!-- HEADER with background header.jpeg (from repo) -->
-<div class="hero-header" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.55)), url('https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/header.jpeg');">
-  <div class="hero-content">
-    <h1>Our Services</h1>
-    <p>artistry · expertise · transformation</p>
+<div class="services-kiosk">
+  <!-- Header Image - Full Width -->
+  <div class="hero-header">
+    <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/header.jpeg" alt="Cidia's Hair Studio" onerror="this.src='https://placehold.co/1400x480/FCE4EC/AF7B92?text=Cidia+Hair+Art'">
   </div>
-</div>
 
-<div class="services-container">
-  
-  <!-- HAIR EXTENSIONS section (images: Hair-Extensions1-4.jpeg) -->
-  <div class="services-grid">
-    <!-- Card: Hair Extensions -->
-    <div class="service-card">
-      <div class="card-inner">
-        <div class="card-media">
-          <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/Hair-Extensions1.jpeg" alt="Hair Extensions before after" loading="lazy">
+  <div class="services-inner">
+    <div class="top-brand">
+      <div class="brand-title">
+        <h2>Cidia's <span>HAIR & ART STUDIO</span></h2>
+      </div>
+      <div class="services-tag">✦ signature services ✦</div>
+    </div>
+
+    <div class="services-grid">
+      
+      <!-- HAIR EXTENSIONS - FULL FRAME SCROLLABLE GALLERY -->
+      <div class="service-card">
+        <div class="service-gallery">
+          <div class="gallery-scroll">
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/Hair-Extensions1.jpeg" alt="Hair Extensions 1" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Extensions+1'"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/Hair-Extensions2.jpeg" alt="Hair Extensions 2" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Extensions+2'"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/Hair-Extensions3.jpeg" alt="Hair Extensions 3" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Extensions+3'"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/Hair-Extensions4.jpeg" alt="Hair Extensions 4" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Extensions+4'"></div>
+          </div>
         </div>
-        <div class="card-content">
-          <h3>✨ Hair Extensions</h3>
+        <div class="service-content">
+          <div class="service-icon">✨💇‍♀️</div>
+          <div class="service-title">Hair Extensions</div>
           <div class="highlight-text">Transforming fine, thin, lifeless hair → thick, long & healthy</div>
-          <div class="service-description">
-            <p>Cidia’s Hair Extensions offer a number of advantages over existing hair extensions systems. Her expert hair color blending and subtle cutting techniques ensure that nobody will notice the difference between your hair and your hair extensions.</p>
-            <p>Her ability to ensure natural looking hair extensions separates her from the rest. Creativity and imagination enable her to personalize, cut, and color to suit every need.</p>
+          <div class="desc-text">
+            Cidia's Hair Extensions offer a number of advantages over existing hair extensions systems. Her expert hair color blending and subtle cutting techniques ensure that nobody will notice the difference between your hair and your hair extensions.
+            Her ability to ensure natural looking hair extensions separates her from the rest. Creativity and imagination enable her to personalize, cut, and color to suit every need.
           </div>
-          <div class="extension-note">
-            🌟 Easy application & custom designed just for you.
-          </div>
-          <!-- mini gallery of other extension images -->
-          <div class="gallery-mini">
-            <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/Hair-Extensions2.jpeg" alt="extension result" loading="lazy">
-            <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/Hair-Extensions3.jpeg" alt="extension style" loading="lazy">
-            <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/Hair-Extensions4.jpeg" alt="extension beauty" loading="lazy">
-          </div>
+          <ul class="feature-list">
+            <li>Easy application & custom designed just for you.</li>
+            <li>Seamless blending with your natural texture & color.</li>
+            <li>Premium quality, lightweight & damage-free wear.</li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <!-- COLOR section (images: color1-4.jpeg) use color pictures -->
-    <div class="service-card">
-      <div class="card-inner">
-        <div class="card-media">
-          <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/color1.jpeg" alt="Vibrant color transformation" loading="lazy">
+      <!-- HAIR COLOR - FULL SIZE GRID (4 images large & visible) -->
+      <div class="service-card">
+        <div class="service-gallery">
+          <div class="color-grid">
+            <div class="color-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/color1.jpeg" alt="Hair Color 1" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Color+1'"></div>
+            <div class="color-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/color2.jpeg" alt="Hair Color 2" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Color+2'"></div>
+            <div class="color-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/color3.jpeg" alt="Hair Color 3" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Color+3'"></div>
+            <div class="color-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/color4.jpeg" alt="Hair Color 4" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Color+4'"></div>
+          </div>
         </div>
-        <div class="card-content">
-          <h3>🎨 Color</h3>
-          <div class="highlight-text">“Blonding” to lighten up your day</div>
-          <div class="service-description">
-            <p>Building confidence for a better and more successful life. Bright and shiny. Just like your future.</p>
-            <p>Our expert colorists use premium organic color lines to create dimensional, luminous shades that enhance your natural beauty. From sun-kissed balayage to bold vivids, each formula is customized for your hair health and lifestyle.</p>
+        <div class="service-content">
+          <div class="service-icon">🎨🌈</div>
+          <div class="service-title">Hair Color</div>
+          <div class="highlight-text">"Blonding" to lighten up your day</div>
+          <div class="desc-text">
+            Building confidence for a better and more successful life. Bright and shiny. Just like your future.<br><br>
+            Our expert colorists use premium organic color lines to create dimensional, luminous shades that enhance your natural beauty. From sun-kissed balayage to bold vivids, each formula is customized for your hair health and lifestyle.
           </div>
-          <!-- gallery of color pictures: color1, color2, color3, color4 -->
-          <div class="gallery-mini">
-            <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/color1.jpeg" alt="color result 1" loading="lazy">
-            <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/color2.jpeg" alt="balayage" loading="lazy">
-            <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/color3.jpeg" alt="rich brunette" loading="lazy">
-            <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/color4.jpeg" alt="vivid tones" loading="lazy">
-          </div>
-          <div class="feature-badge">✨ Custom glossing & scalp-nourishing treatments</div>
+          <ul class="feature-list">
+            <li>Organic, damage-free formulations</li>
+            <li>Custom balayage, ombré, highlights & vivid colors</li>
+            <li>Long-lasting shine & deep conditioning care</li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <!-- HAIRCUTS section (images: Haircut1-4.jpeg) -->
-    <div class="service-card">
-      <div class="card-inner">
-        <div class="card-media">
-          <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/Haircut1.jpeg" alt="Precision haircut" loading="lazy">
+      <!-- HAIRCUTS - FULL FRAME SCROLLABLE GALLERY (no cropping) -->
+      <div class="service-card">
+        <div class="service-gallery">
+          <div class="gallery-scroll">
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/Haircut1.jpeg" alt="Haircut Style 1" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Haircut+1'"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/Haircut2.jpeg" alt="Haircut Style 2" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Haircut+2'"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/Haircut3.jpeg" alt="Haircut Style 3" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Haircut+3'"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/image/Haircut4.jpeg" alt="Haircut Style 4" loading="lazy" onerror="this.src='https://placehold.co/400x400/F7E2EB/A66F88?text=Haircut+4'"></div>
+          </div>
         </div>
-        <div class="card-content">
-          <h3>✂️ Haircuts</h3>
+        <div class="service-content">
+          <div class="service-icon">✂️💇</div>
+          <div class="service-title">Haircuts</div>
           <div class="highlight-text">Asymmetrical, short, layered or precise straight haircut with master hair stylist</div>
-          <div class="service-description">
-            <p>We work with professional treatment-based products that accelerate repair, lock color in, promoting healthy and strong hair. Every cut is tailored to your face shape, texture, and lifestyle — delivering effortless style and movement.</p>
-            <p>From modern pixies to long layers, Cidia's precision cutting techniques enhance natural beauty while maintaining hair integrity.</p>
+          <div class="desc-text">
+            We work with professional treatment-based products that accelerate repair, lock color in, promoting healthy and strong hair. Every cut is tailored to your face shape, texture, and lifestyle — delivering effortless style and movement.<br><br>
+            From modern pixies to long layers, Cidia's precision cutting techniques enhance natural beauty while maintaining hair integrity.
           </div>
-          <!-- gallery of haircut images (4 images) -->
-          <div class="gallery-mini">
-            <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/Haircut1.jpeg" alt="modern cut" loading="lazy">
-            <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/Haircut2.jpeg" alt="layered style" loading="lazy">
-            <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/Haircut3.jpeg" alt="textured bob" loading="lazy">
-            <img src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/Haircut4.jpeg" alt="precision cut" loading="lazy">
-          </div>
-          <div class="feature-badge">💆‍♀️ includes scalp massage & expert styling tips</div>
+          <ul class="feature-list">
+            <li>Face shape & texture consultation</li>
+            <li>Precision cutting for any length or style</li>
+            <li>Repair-focused products to maintain strength</li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Navigation bar (consistent with landing, but this is services page) -->
-  <div class="nav-mirror">
-    <div class="nav-btn-mirror" data-page="home">Home</div>
-    <div class="nav-btn-mirror" data-page="about">About</div>
-    <div class="nav-btn-mirror active-service" data-page="services" style="background:#FADCE9; border-color:#E28FAD; box-shadow:0 2px 0 #F3B6CF;">Services</div>
-    <div class="nav-btn-mirror curly" data-page="curly">Curly hair</div>
-    <div class="nav-btn-mirror" data-page="team">Team</div>
-    <div class="nav-btn-mirror" data-page="gallery">Gallery</div>
-    <div class="nav-btn-mirror" data-page="contact">Contact</div>
-  </div>
+    <!-- Curly hair specialty badge -->
+    <div style="background: #FDF5F9; border-radius: 28px; padding: 14px 24px; margin: 36px 0 20px; text-align: center; border: 1px solid #EECBD9;">
+      <span style="font-weight: 500; color:#AD5F7E; font-size: 1rem;">✨ Curly hair specialists | Bridal & Event Styling | Custom consultations ✨</span>
+    </div>
 
-  <!-- Bottom info: phone & address + instagram (clickable) -->
-  <div class="bottom-info">
-    <div class="call-phone" id="callNowBtn">
-      📞 call/text 203-788-7260
+    <!-- Booking Bar -->
+    <div class="booking-cta-bar">
+      <div class="booking-text">📅 Book your appointment today</div>
+      <div class="phone-chip" id="phoneBookingBtn">📞 203-788-7260</div>
+      <div class="instagram-mini" id="instaServicesBtn">
+        <div class="insta-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.309.975.975 1.247 2.242 1.309 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.309 3.608-.975.975-2.242 1.247-3.608 1.309-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.309-.975-.975-1.247-2.242-1.309-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.309-3.608.975-.975 2.242-1.247 3.608-1.309 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.648.64 2.365 1.923 1.082 3.206.6 4.755.515 6.61.457 7.89.443 8.299.443 12s.014 4.108.072 5.39c.085 1.855.568 3.404 1.85 4.687 1.283 1.283 2.832 1.765 4.687 1.85 1.28.058 1.689.072 5.39.072 3.702 0 4.11-.014 5.39-.072 1.855-.085 3.404-.568 4.687-1.85 1.283-1.283 1.765-2.832 1.85-4.687.058-1.282.072-1.69.072-5.39 0-3.702-.014-4.11-.072-5.39-.085-1.855-.568-3.404-1.85-4.687C20.797.64 19.248.157 17.392.072 16.11.014 15.702 0 12 0z"/></svg>
+        </div>
+        <span style="font-weight:500;">@hairartbycidia</span>
+      </div>
     </div>
-    <div class="instagram-footer" id="instagramClick">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.309.975.975 1.247 2.242 1.309 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.309 3.608-.975.975-2.242 1.247-3.608 1.309-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.309-.975-.975-1.247-2.242-1.309-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.309-3.608.975-.975 2.242-1.247 3.608-1.309 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.648.64 2.365 1.923 1.082 3.206.6 4.755.515 6.61.457 7.89.443 8.299.443 12s.014 4.108.072 5.39c.085 1.855.568 3.404 1.85 4.687 1.283 1.283 2.832 1.765 4.687 1.85 1.28.058 1.689.072 5.39.072 3.702 0 4.11-.014 5.39-.072 1.855-.085 3.404-.568 4.687-1.85 1.283-1.283 1.765-2.832 1.85-4.687.058-1.282.072-1.69.072-5.39 0-3.702-.014-4.11-.072-5.39-.085-1.855-.568-3.404-1.85-4.687C20.797.64 19.248.157 17.392.072 16.11.014 15.702 0 12 0z" fill="#D85F8B"/>
-      </svg>
-      <span>@hairartbycidia</span>
+
+    <!-- Navigation -->
+    <div class="nav-row">
+      <div class="nav-pill" data-nav="home">Home</div>
+      <div class="nav-pill" data-nav="about">About</div>
+      <div class="nav-pill active-service" data-nav="services">Services</div>
+      <div class="nav-pill" data-nav="curly">Curly hair</div>
+      <div class="nav-pill" data-nav="team">Team</div>
+      <div class="nav-pill" data-nav="gallery">Gallery</div>
+      <div class="nav-pill" data-nav="contact">Contact</div>
     </div>
-    <div class="address">20 Church Hill Rd, Newtown, CT 06470</div>
+
+    <div class="contact-strip">
+      <div class="call-box" id="callFooter">📞 call/text 203-788-7260</div>
+      <div class="address-box">📍 20 Church Hill Rd, Newtown, CT 06470</div>
+    </div>
   </div>
 </div>
 
 <script>
-  // Build About page content (matching previous about story)
-  const aboutPageHTML = `<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cidia's · About Us</title><style>
-*{margin:0;padding:0;box-sizing:border-box}body{background:#F2D7DE;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
-.kiosk{max-width:1100px;background:white;border-radius:40px;padding:28px;border:1px solid #E9BACB}.mirror-container{display:flex;gap:28px;flex-wrap:wrap}.video-mirror{flex:1}.video-wrapper{border-radius:32px;overflow:hidden;border:3px solid #F5C4D6;aspect-ratio:3/4}.video-wrapper video{width:100%;height:100%;object-fit:cover}.content-side{flex:1}.brand-main h1{font-size:3.5rem;color:#52303F;font-family:'Playfair Display',serif}.hair-art{font-size:2rem;color:#AC758B;letter-spacing:0.15em;text-transform:uppercase}.tagline{background:#FDEDF3;display:inline-block;padding:0.4rem 1.4rem;border-radius:40px;margin:14px 0}.dreams{font-size:3rem;color:#603A49;font-family:'Playfair Display',serif;font-style:italic;border-bottom:2px solid #F2C3D4;padding-bottom:12px}.about-story{background:#FEF8FB;border-radius:28px;padding:24px;border-left:6px solid #EFAFC6;margin:20px 0}.story-headline{font-size:2rem;font-weight:600;color:#7C4A60;margin-bottom:18px}.story-text{line-height:1.6;color:#4F3442}.story-text p{margin-bottom:1rem}.highlight{background:#FEF0F6;display:inline-block;padding:0.2rem 0.7rem;border-radius:24px}.service-desc{border-left:3px solid #EFAFC6;padding-left:20px;margin:16px 0}.booking-row{background:#FEF2F7;border-radius:60px;padding:16px 24px;margin:20px 0}.booking-left{display:flex;gap:15px;flex-wrap:wrap;align-items:center}.booking-text{font-size:1.6rem;color:#773E56;font-family:'Playfair Display',serif}.call-chip{background:white;padding:8px 20px;border-radius:40px;border:1px solid #EFA3BF;cursor:pointer}.instagram-box{display:flex;align-items:center;gap:10px;background:#FEF0F6;padding:8px 18px;border-radius:50px;width:fit-content;cursor:pointer;margin:12px 0}.instagram-icon{width:34px;height:34px;background:radial-gradient(circle at 30% 30%,#F5A9C4,#D85F8B);border-radius:10px;display:flex;align-items:center;justify-content:center}.instagram-icon svg{width:22px;fill:white}.nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.nav-btn{background:white;border:1px solid #EEAFC7;border-radius:40px;padding:10px 18px;cursor:pointer}.bottom{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}.call-text{background:#FEF1F7;border-radius:60px;padding:12px 24px;cursor:pointer}.address{background:#FEF0F6;border-radius:60px;padding:12px 24px;flex:1;text-align:center}@media(max-width:800px){.mirror-container{flex-direction:column}.dreams{font-size:2rem}}</style>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-</head>
-<body><div class="kiosk"><div class="mirror-container"><div class="video-mirror"><div class="video-wrapper"><video autoplay loop muted playsinline><source src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/hair-style.mp4"></video></div></div><div class="content-side"><div class="brand-main"><h1>Cidia's</h1><div class="hair-art">HAIR & ART STUDIO</div></div><div class="tagline">ELEGANT AND MODERN SALON</div><div class="dreams">Hair of your dreams</div><div class="about-story"><div class="story-headline">✨ Our Story</div><div class="story-text"><p>For over <span class="highlight">17 years</span>, Cidia’s Hair & Art Studio has been a trusted destination in Newtown, CT, offering a personalized salon experience like no other. Specializing in exclusive, organic hair solutions, we cater to clients seeking meticulous attention and high-quality craftsmanship.</p><p>From custom hair extensions and vibrant color to precision cuts, curly hair care, and formal event styling, every service is thoughtfully tailored to the individual. We are proud to use only premium, sustainable products—and to set ourselves apart with <span class="highlight">bespoke, custom-made hair extensions</span> that offer a truly seamless finish.</p><p>At Cidia’s, beauty meets artistry, and every client leaves feeling uniquely cared for.</p></div></div><div class="service-desc"><p>OUTSTANDING EXPERIENCE AND<br>EXCEPTIONAL LEVEL OF SERVICE<br>TO CLIENTS, WHATEVER THEIR<br>REQUIREMENTS MAY BE</p></div><div class="booking-row"><div class="booking-left"><span class="booking-text">Book your app today</span><span class="call-chip">📞 203-788-7260</span></div></div><div class="instagram-box"><div class="instagram-icon"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.309.975.975 1.247 2.242 1.309 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.309 3.608-.975.975-2.242 1.247-3.608 1.309-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.309-.975-.975-1.247-2.242-1.309-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.309-3.608.975-.975 2.242-1.247 3.608-1.309 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.648.64 2.365 1.923 1.082 3.206.6 4.755.515 6.61.457 7.89.443 8.299.443 12s.014 4.108.072 5.39c.085 1.855.568 3.404 1.85 4.687 1.283 1.283 2.832 1.765 4.687 1.85 1.28.058 1.689.072 5.39.072 3.702 0 4.11-.014 5.39-.072 1.855-.085 3.404-.568 4.687-1.85 1.283-1.283 1.765-2.832 1.85-4.687.058-1.282.072-1.69.072-5.39 0-3.702-.014-4.11-.072-5.39-.085-1.855-.568-3.404-1.85-4.687C20.797.64 19.248.157 17.392.072 16.11.014 15.702 0 12 0z"/></svg></div><span>@hairartbycidia</span></div><div class="nav"><div class="nav-btn">Home</div><div class="nav-btn">About</div><div class="nav-btn">Services</div><div class="nav-btn">Curly hair</div><div class="nav-btn">Team</div><div class="nav-btn">Gallery</div><div class="nav-btn">Contact</div></div><div class="bottom"><div class="call-text">📞 call/text 203-788-7260</div><div class="address">20 Church Hill Rd, Newtown, CT 06470</div></div></div></div></div><script>
-  document.querySelector('.instagram-box')?.addEventListener('click',()=>window.open('https://www.instagram.com/hairartbycidia','_blank'));
-  document.querySelectorAll('.call-chip,.call-text').forEach(el=>el.addEventListener('click',()=>window.location.href='tel:2037887260'));
-  document.querySelectorAll('.nav-btn').forEach(btn=>btn.addEventListener('click',()=>{if(btn.innerText==='About'){window.open(window.location.href,'_blank');}else if(btn.innerText==='Home'){alert('✨ Return to Home page');}else{alert('🌟 '+btn.innerText+' — experience at Cidia’s!');}}));
-  document.querySelector('video').muted=true; document.querySelector('video').play().catch(()=>{});
-<\/script>
-</body>
-</html>`;
-
-  // -------- Interactions for SERVICES PAGE ----------
-  // Phone call handler
-  const callBtn = document.getElementById('callNowBtn');
-  if(callBtn) {
-    callBtn.addEventListener('click', () => {
+  // Phone call functionality
+  const phoneElements = document.querySelectorAll('.phone-chip, #phoneBookingBtn, #callFooter, .call-box');
+  phoneElements.forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
       window.location.href = 'tel:2037887260';
     });
-  }
+  });
+
   // Instagram click
-  const instaDiv = document.getElementById('instagramClick');
-  if(instaDiv) {
-    instaDiv.addEventListener('click', () => {
+  const instaBtn = document.getElementById('instaServicesBtn');
+  if(instaBtn) {
+    instaBtn.addEventListener('click', () => {
       window.open('https://www.instagram.com/hairartbycidia', '_blank');
     });
   }
 
-  // Navigation handlers (Home, About, etc)
-  const navBtns = document.querySelectorAll('.nav-btn-mirror');
-  navBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const page = btn.getAttribute('data-page');
-      if(page === 'about') {
-        // Open about page in new tab
+  // About page HTML (preserved)
+  const aboutPageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Cidia's — About</title><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#F2D7DE;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}.kiosk{max-width:1100px;background:white;border-radius:40px;padding:28px;border:1px solid #E9BACB}.mirror-container{display:flex;gap:28px;flex-wrap:wrap}.video-mirror{flex:1;min-width:250px}.video-wrapper{border-radius:32px;overflow:hidden;border:3px solid #F5C4D6;aspect-ratio:3/4}.video-wrapper video{width:100%;height:100%;object-fit:cover}.content-side{flex:1}.brand-main h1{font-size:3.5rem;color:#52303F;font-family:'Playfair Display',serif}.hair-art{font-size:2rem;color:#AC758B;letter-spacing:0.15em;text-transform:uppercase}.tagline{background:#FDEDF3;display:inline-block;padding:0.4rem 1.4rem;border-radius:40px;margin:14px 0}.dreams{font-size:3rem;color:#603A49;font-family:'Playfair Display',serif;font-style:italic;border-bottom:2px solid #F2C3D4;padding-bottom:12px}.about-story{background:#FEF8FB;border-radius:28px;padding:24px;border-left:6px solid #EFAFC6;margin:20px 0}.story-headline{font-size:2rem;font-weight:600;color:#7C4A60}.story-text{line-height:1.6;color:#4F3442}.highlight{background:#FEF0F6;display:inline-block;padding:0.2rem 0.7rem;border-radius:24px}.service-desc{border-left:3px solid #EFAFC6;padding-left:20px;margin:16px 0}.booking-row{background:#FEF2F7;border-radius:60px;padding:16px 24px;margin:20px 0;display:flex;flex-wrap:wrap}.booking-left{display:flex;gap:15px;align-items:center;flex-wrap:wrap}.booking-text{font-size:1.6rem;color:#773E56}.call-chip{background:white;padding:8px 20px;border-radius:40px;border:1px solid #EFA3BF;cursor:pointer}.instagram-box{display:flex;align-items:center;gap:10px;background:#FEF0F6;padding:8px 18px;border-radius:50px;width:fit-content;cursor:pointer;margin:12px 0}.instagram-icon{width:34px;height:34px;background:radial-gradient(circle at 30% 30%,#F5A9C4,#D85F8B);border-radius:10px;display:flex;align-items:center;justify-content:center}.instagram-icon svg{width:22px;fill:white}.nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.nav-btn{background:white;border:1px solid #EEAFC7;border-radius:40px;padding:10px 18px;cursor:pointer}.bottom{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}.call-text{background:#FEF1F7;border-radius:60px;padding:12px 24px;cursor:pointer}.address{background:#FEF0F6;border-radius:60px;padding:12px 24px;flex:1;text-align:center}@media(max-width:800px){.mirror-container{flex-direction:column}.dreams{font-size:2rem}}</style><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"></head><body><div class="kiosk"><div class="mirror-container"><div class="video-mirror"><div class="video-wrapper"><video autoplay loop muted playsinline><source src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/hair-style.mp4" type="video/mp4"></video></div></div><div class="content-side"><div class="brand-main"><h1>Cidia's</h1><div class="hair-art">HAIR & ART STUDIO</div></div><div class="tagline">ELEGANT AND MODERN SALON</div><div class="dreams">Hair of your dreams</div><div class="about-story"><div class="story-headline">✨ Our Story</div><div class="story-text"><p>For over <span class="highlight">17 years</span>, Cidia's Hair & Art Studio has been a trusted destination in Newtown, CT, offering personalized salon experience. Specializing in exclusive organic hair solutions.</p><p>From custom hair extensions and vibrant color to precision cuts, curly hair care, every service thoughtfully tailored. We use premium sustainable products and bespoke custom-made hair extensions.</p><p>At Cidia's, beauty meets artistry.</p></div></div><div class="service-desc"><p>OUTSTANDING EXPERIENCE AND EXCEPTIONAL LEVEL OF SERVICE</p></div><div class="booking-row"><div class="booking-left"><span class="booking-text">Book your app today</span><span class="call-chip">📞 203-788-7260</span></div></div><div class="instagram-box"><div class="instagram-icon"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.309.975.975 1.247 2.242 1.309 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.309 3.608-.975.975-2.242 1.247-3.608 1.309-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.309-.975-.975-1.247-2.242-1.309-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.309-3.608.975-.975 2.242-1.247 3.608-1.309 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.648.64 2.365 1.923 1.082 3.206.6 4.755.515 6.61.457 7.89.443 8.299.443 12s.014 4.108.072 5.39c.085 1.855.568 3.404 1.85 4.687 1.283 1.283 2.832 1.765 4.687 1.85 1.28.058 1.689.072 5.39.072 3.702 0 4.11-.014 5.39-.072 1.855-.085 3.404-.568 4.687-1.85 1.283-1.283 1.765-2.832 1.85-4.687.058-1.282.072-1.69.072-5.39 0-3.702-.014-4.11-.072-5.39-.085-1.855-.568-3.404-1.85-4.687C20.797.64 19.248.157 17.392.072 16.11.014 15.702 0 12 0z"/></svg></div><span>@hairartbycidia</span></div><div class="nav"><div class="nav-btn">Home</div><div class="nav-btn">About</div><div class="nav-btn">Services</div><div class="nav-btn">Curly hair</div><div class="nav-btn">Team</div><div class="nav-btn">Gallery</div><div class="nav-btn">Contact</div></div><div class="bottom"><div class="call-text">📞 call/text 203-788-7260</div><div class="address">20 Church Hill Rd, Newtown, CT 06470</div></div></div></div></div><script>document.querySelectorAll('.call-chip,.call-text').forEach(el=>el.addEventListener('click',()=>location.href='tel:2037887260'));document.querySelector('.instagram-box').addEventListener('click',()=>window.open('https://www.instagram.com/hairartbycidia','_blank'));document.querySelectorAll('.nav-btn').forEach(btn=>{btn.addEventListener('click',()=>{if(btn.innerText==='About') alert('You are on About'); else if(btn.innerText==='Home') window.location.reload(); else if(btn.innerText==='Services') window.open(window.location.href,'_blank'); else alert('✨ '+btn.innerText+' at Cidia’s');})});document.querySelector('video')?.play().catch(()=>{});<\/script></body></html>`;
+
+  // Home page HTML
+  const homePageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Cidia's Hair & Art Studio</title><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#F2D7DE;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:12px}.kiosk{max-width:1100px;width:100%;background:#fff;border-radius:40px;padding:28px 24px;border:1px solid #E9BACB}.mirror-container{display:flex;gap:28px;align-items:center;flex-wrap:wrap}.video-mirror{flex:1}.video-wrapper{border-radius:32px;overflow:hidden;border:3px solid #F5C4D6;aspect-ratio:3/4;background:#FCE4EC}.video-wrapper video{width:100%;height:100%;object-fit:cover}.content-side{flex:1}.brand-main h1{font-size:3.5rem;color:#52303F;font-family:'Playfair Display',serif}.hair-art{font-size:2rem;color:#AC758B;text-transform:uppercase}.tagline-mirror{background:#FDEDF3;display:inline-block;padding:0.4rem 1.4rem;border-radius:40px;margin:14px 0}.dreams-mirror{font-size:3.2rem;color:#603A49;font-family:'Playfair Display',serif;font-style:italic;border-bottom:2px solid #F2C3D4}.service-desc-mirror{border-left:3px solid #EFAFC6;padding-left:20px;margin:16px 0}.booking-row{background:#FEF2F7;border-radius:60px;padding:16px 24px;margin:20px 0;display:flex;flex-wrap:wrap}.booking-left{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.booking-text-mirror{font-size:1.6rem;color:#773E56}.call-phone-chip{background:#fff;padding:8px 20px;border-radius:40px;border:1px solid #EFA3BF;cursor:pointer}.instagram-mirror{display:flex;align-items:center;gap:10px;background:#FEF0F6;border-radius:50px;width:fit-content;padding:8px 18px;cursor:pointer}.instagram-icon-small{width:34px;height:34px;background:radial-gradient(circle at 30% 30%,#F5A9C4,#D85F8B);border-radius:10px;display:flex;align-items:center;justify-content:center}.instagram-icon-small svg{width:22px;fill:white}.nav-mirror{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.nav-btn-mirror{background:#fff;border:1px solid #EEAFC7;border-radius:40px;padding:10px 18px;cursor:pointer}.bottom-mirror{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}.call-text-phone{background:#FEF1F7;border-radius:60px;padding:12px 24px;cursor:pointer}.address-mirror{background:#FEF0F6;border-radius:60px;padding:12px 24px;flex:1;text-align:center}@media(max-width:800px){.mirror-container{flex-direction:column}}</style><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"></head><body><div class="kiosk"><div class="mirror-container"><div class="video-mirror"><div class="video-wrapper"><video autoplay loop muted playsinline><source src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/hair-style.mp4" type="video/mp4"></video></div></div><div class="content-side"><div class="brand-main"><h1>Cidia's</h1><div class="hair-art">HAIR & ART STUDIO</div></div><div class="tagline-mirror">ELEGANT AND MODERN SALON</div><div class="dreams-mirror">Hair of your dreams</div><div class="service-desc-mirror"><p>OUTSTANDING EXPERIENCE AND EXCEPTIONAL LEVEL OF SERVICE</p></div><div class="booking-row"><div class="booking-left"><span class="booking-text-mirror">Book your app today</span><span class="call-phone-chip">📞 203-788-7260</span></div></div><div class="instagram-mirror"><div class="instagram-icon-small"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.309.975.975 1.247 2.242 1.309 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.309 3.608-.975.975-2.242 1.247-3.608 1.309-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.309-.975-.975-1.247-2.242-1.309-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.309-3.608.975-.975 2.242-1.247 3.608-1.309 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.648.64 2.365 1.923 1.082 3.206.6 4.755.515 6.61.457 7.89.443 8.299.443 12s.014 4.108.072 5.39c.085 1.855.568 3.404 1.85 4.687 1.283 1.283 2.832 1.765 4.687 1.85 1.28.058 1.689.072 5.39.072 3.702 0 4.11-.014 5.39-.072 1.855-.085 3.404-.568 4.687-1.85 1.283-1.283 1.765-2.832 1.85-4.687.058-1.282.072-1.69.072-5.39 0-3.702-.014-4.11-.072-5.39-.085-1.855-.568-3.404-1.85-4.687C20.797.64 19.248.157 17.392.072 16.11.014 15.702 0 12 0z"/></svg></div><span>@hairartbycidia</span></div><div class="nav-mirror"><div class="nav-btn-mirror">Home</div><div class="nav-btn-mirror">About</div><div class="nav-btn-mirror">Services</div><div class="nav-btn-mirror">Curly hair</div><div class="nav-btn-mirror">Team</div><div class="nav-btn-mirror">Gallery</div><div class="nav-btn-mirror">Contact</div></div><div class="bottom-mirror"><div class="call-text-phone">📞 call/text 203-788-7260</div><div class="address-mirror">20 Church Hill Rd, Newtown, CT 06470</div></div></div></div></div><script>document.querySelectorAll('.call-phone-chip,.call-text-phone').forEach(el=>el.addEventListener('click',()=>location.href='tel:2037887260'));document.querySelector('.instagram-mirror')?.addEventListener('click',()=>window.open('https://www.instagram.com/hairartbycidia','_blank'));document.querySelectorAll('.nav-btn-mirror').forEach(btn=>{btn.addEventListener('click',()=>{let t=btn.innerText.toLowerCase();if(t==='about'){let w=window.open();w.document.write(\`${aboutPageHTML}\`);w.document.close()}else if(t==='home')alert('✨ Home page');else if(t==='services')window.open(window.location.href,'_blank');else alert('✨ '+btn.innerText+' service')})});document.querySelector('video')?.play().catch(()=>{});<\/script></body></html>`;
+
+  // Navigation handlers
+  const navPills = document.querySelectorAll('.nav-pill');
+  navPills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      const target = pill.getAttribute('data-nav');
+      if (target === 'home') {
         const win = window.open();
-        if(win) {
-          win.document.write(aboutPageHTML);
-          win.document.close();
-        } else {
-          window.open('data:text/html;charset=utf-8,' + encodeURIComponent(aboutPageHTML), '_blank');
-        }
-      } 
-      else if(page === 'home') {
-        alert('✨ Welcome to Cidia’s. The Home page is under same elegant design — you can close this tab to return.');
-        // optional: window.location.href = 'index.html'; if needed but we keep smooth
-      }
-      else if(page === 'services') {
-        alert('🌟 You are already on the Services page! Explore our extensions, color, and haircuts.');
-      }
-      else if(page === 'curly') {
-        alert('🌀 Curly hair experts! Custom curly cuts and hydration treatments available. Book now!');
-      }
-      else if(page === 'team') {
-        alert('👩‍🎨 Meet Cidia and our creative stylists — artistry in every detail. Call to schedule a consultation.');
-      }
-      else if(page === 'gallery') {
-        alert('📸 Gallery of transformations — follow @hairartbycidia on Instagram for daily inspiration!');
-      }
-      else if(page === 'contact') {
-        alert('📞 Call 203-788-7260 or visit 20 Church Hill Rd, Newtown, CT 06470. We’d love to see you!');
+        win.document.write(homePageHTML);
+        win.document.close();
+      } else if (target === 'about') {
+        const aboutWin = window.open();
+        aboutWin.document.write(aboutPageHTML);
+        aboutWin.document.close();
+      } else if (target === 'services') {
+        alert('You are already on the Services page ✨');
+      } else if (target === 'curly') {
+        alert('✨ Curly hair specialists: custom cuts & hydration treatments! Call 203-788-7260');
+      } else if (target === 'team') {
+        alert('Meet Cidia and her master stylists — artistry & passion');
+      } else if (target === 'gallery') {
+        window.open('https://www.instagram.com/hairartbycidia', '_blank');
+      } else if (target === 'contact') {
+        alert('📍 20 Church Hill Rd, Newtown, CT 06470 | 📞 203-788-7260');
       }
     });
   });
-
-  // small fallback: make address copy friendly but no action needed
 </script>
 </body>
 </html>
