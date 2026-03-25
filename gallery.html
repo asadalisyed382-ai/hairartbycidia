@@ -440,7 +440,7 @@
       <div class="gallery-badge">📸 hair artistry in action</div>
     </div>
 
-    <!-- Gallery Grid - 3 images per row, FULL IMAGES (no cropping) -->
+    <!-- Gallery Grid - 3 images per row, FULL IMAGES (no cropping) - 12 images total (Gal1 to Gal12) -->
     <div class="gallery-grid" id="galleryGrid">
       <!-- Images will be dynamically injected via JavaScript -->
     </div>
@@ -488,13 +488,28 @@
 </div>
 
 <script>
-  // Generate 15 images from Gal1.jpeg to Gal15.jpeg in image folder
+  // Generate 12 images from Gal1.jpeg to Gal12.jpeg (Gal13, Gal14, Gal15 removed)
   const galleryImages = [];
-  for (let i = 1; i <= 15; i++) {
+  const captions = [
+    "✨ Seamless Hair Extensions — Natural volume and length",
+    "🎨 Vibrant Color Transformation — Dimensional balayage",
+    "🌀 Precision Curly Cut — Enhanced natural bounce",
+    "💫 Balayage Masterpiece — Sun-kissed perfection",
+    "👰 Bridal Styling — Elegant updos for your special day",
+    "✂️ Textured Layers — Movement and flow",
+    "✨ Blonding Expert — Bright, dimensional blonde",
+    "🌀 Curly Hair Specialist — Defined, frizz-free curls",
+    "💎 Custom Extensions — Perfectly blended",
+    "🎨 Color Correction — Restored vibrancy",
+    "✂️ Modern Pixie Cut — Chic and sophisticated",
+    "💫 Volume & Movement — Red carpet ready"
+  ];
+  
+  for (let i = 1; i <= 12; i++) {
     galleryImages.push({
       src: `image/Gal${i}.jpeg`,
       alt: `Cidia's Hair Art - Gallery Image ${i}`,
-      caption: `✨ Cidia's signature work — ${i === 1 ? 'Seamless Hair Extensions' : i === 2 ? 'Vibrant Color Transformation' : i === 3 ? 'Precision Curly Cut' : i === 4 ? 'Balayage Masterpiece' : i === 5 ? 'Bridal Styling' : i === 6 ? 'Textured Layers' : i === 7 ? 'Blonding Expert' : i === 8 ? 'Curly Hair Specialist' : i === 9 ? 'Custom Extensions' : i === 10 ? 'Color Correction' : i === 11 ? 'Modern Pixie Cut' : i === 12 ? 'Volume & Movement' : i === 13 ? 'Vivid Colors' : i === 14 ? 'Special Event Styling' : 'Signature Hair Art'} ✨`
+      caption: captions[i-1] || `✨ Cidia's signature work — transformation ${i} ✨`
     });
   }
 
