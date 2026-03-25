@@ -38,7 +38,7 @@
       padding: 28px 24px 32px;
     }
 
-    /* Header image / Hero section */
+    /* Header image / Hero section with circular images around title */
     .gallery-header {
       width: 100%;
       background: linear-gradient(135deg, #FCE4EC 0%, #FDF0F5 100%);
@@ -46,17 +46,42 @@
       text-align: center;
       border-bottom: 1px solid #F0CCDC;
     }
+    .title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .circular-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(128, 85, 100, 0.2);
+      border: 3px solid #FFFFFF;
+      transition: transform 0.3s ease;
+    }
+    .circular-image:hover {
+      transform: scale(1.05);
+    }
+    .circular-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .gallery-header h1 {
       font-size: 2.5rem;
       font-family: 'Playfair Display', serif;
       color: #663D52;
-      margin-bottom: 12px;
+      margin: 0;
     }
     .gallery-header p {
       font-size: 1.1rem;
       color: #7C4A60;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 12px auto 0;
       line-height: 1.5;
     }
 
@@ -346,6 +371,10 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
       }
+      .circular-image {
+        width: 60px;
+        height: 60px;
+      }
       .gallery-header h1 {
         font-size: 2rem;
       }
@@ -363,11 +392,18 @@
       .gallery-header {
         padding: 32px 20px;
       }
+      .title-container {
+        gap: 12px;
+      }
+      .circular-image {
+        width: 45px;
+        height: 45px;
+      }
       .gallery-header h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
       }
       .gallery-header p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
       }
       .brand h2 {
         font-size: 1.5rem;
@@ -412,8 +448,12 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
       }
+      .circular-image {
+        width: 38px;
+        height: 38px;
+      }
       .gallery-header h1 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
       }
       .booking-title {
         font-size: 1.1rem;
@@ -428,9 +468,17 @@
 </head>
 <body>
 <div class="app-container">
-  <!-- Gallery Header - No stars, just clean title -->
+  <!-- Gallery Header with circular images Gal13 and Gal14 around the title -->
   <div class="gallery-header">
-    <h1>Our Artistry Gallery</h1>
+    <div class="title-container">
+      <div class="circular-image">
+        <img src="image/Gal13.jpeg" alt="Gallery Decoration Left" onerror="this.src='https://placehold.co/80x80/F7E2EB/A66F88?text=✨'">
+      </div>
+      <h1>Our Artistry Gallery</h1>
+      <div class="circular-image">
+        <img src="image/Gal14.jpeg" alt="Gallery Decoration Right" onerror="this.src='https://placehold.co/80x80/F7E2EB/A66F88?text=✨'">
+      </div>
+    </div>
     <p>Explore Cidia's signature work — from seamless extensions and vibrant color transformations to precision cuts and curly hair masterpieces. Every image tells a story of beauty, confidence, and craftsmanship.</p>
   </div>
 
@@ -443,7 +491,7 @@
       <div class="gallery-badge">📸 hair artistry in action</div>
     </div>
 
-    <!-- Gallery Grid - 3 images per row, FULL IMAGES - 14 images total (Gal1 to Gal14) -->
+    <!-- Gallery Grid - 12 images only (Gal1 to Gal12) - Gal13 and Gal14 are used as decorative circles -->
     <div class="gallery-grid" id="galleryGrid">
       <!-- Images will be dynamically injected via JavaScript -->
     </div>
@@ -491,7 +539,7 @@
 </div>
 
 <script>
-  // Generate 14 images from Gal1.jpeg to Gal14.jpeg (including Gal13 and Gal14)
+  // Generate 12 images from Gal1.jpeg to Gal12.jpeg (Gal13 and Gal14 are used as decorative circles in header)
   const galleryImages = [];
   const captions = [
     "✨ Seamless Hair Extensions — Natural volume and length",
@@ -505,13 +553,11 @@
     "💎 Custom Extensions — Perfectly blended",
     "🎨 Color Correction — Restored vibrancy",
     "✂️ Modern Pixie Cut — Chic and sophisticated",
-    "💫 Volume & Movement — Red carpet ready",
-    "✨ Signature Hair Art — Creative expression",
-    "🌟 Complete Transformation — Before & after magic"
+    "💫 Volume & Movement — Red carpet ready"
   ];
   
-  // Create images for Gal1 through Gal14
-  for (let i = 1; i <= 14; i++) {
+  // Create images for Gal1 through Gal12 only
+  for (let i = 1; i <= 12; i++) {
     galleryImages.push({
       src: `image/Gal${i}.jpeg`,
       alt: `Cidia's Hair Art - Gallery Image ${i}`,
