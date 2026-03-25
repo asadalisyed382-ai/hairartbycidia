@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <title>Cidia's Hair & Art Studio — Curly Hair Specialists</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: #F2D7DE;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      padding: 16px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      box-shadow: 0 25px 40px -18px rgba(120, 80, 95, 0.3);
+      border-radius: 40px;
+      border: 1px solid #E9BACB;
+      overflow: hidden;
+    }
+
+    .content-pad {
+      padding: 28px 24px 32px;
+    }
+
+    /* Header image */
+    .curly-header {
+      width: 100%;
+      background: #FCE4EC;
+      line-height: 0;
+      border-bottom: 1px solid #F0CCDC;
+    }
+    .curly-header img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      max-height: 450px;
+    }
+
+    /* Brand row */
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      border-bottom: 2px solid #F5C4D6;
+      padding-bottom: 12px;
+    }
+    .brand h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #52303F;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+    .brand span {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #AC758B;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+    }
+    .curly-badge-header {
+      background: #FDEDF3;
+      padding: 6px 20px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #9F5D79;
+      border: 1px solid #E6B7C9;
+      white-space: nowrap;
+    }
+
+    /* Hero quote section */
+    .hero-quote {
+      background: linear-gradient(135deg, #FEF5F8 0%, #FDF0F5 100%);
+      border-radius: 32px;
+      padding: 28px 28px;
+      margin-bottom: 32px;
+      border: 1px solid #F0CCDC;
+      text-align: center;
+    }
+    .hero-quote h1 {
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      color: #663D52;
+      margin-bottom: 16px;
+    }
+    .hero-quote p {
+      font-size: 1.2rem;
+      color: #7C4A60;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* Video cards grid */
+    .video-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    .video-card {
+      background: #FEFCFD;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid #F0CCDC;
+      box-shadow: 0 8px 20px rgba(128, 85, 100, 0.08);
+    }
+    .video-wrapper {
+      width: 100%;
+      background: #F9EAF0;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-content {
+      padding: 24px 28px;
+    }
+    .video-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      font-family: 'Playfair Display', serif;
+      color: #663D52;
+      margin-bottom: 12px;
+      border-left: 4px solid #EFAFC6;
+      padding-left: 16px;
+    }
+    .video-description {
+      color: #3F2C36;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    .video-description p {
+      margin-bottom: 10px;
+    }
+    .bullet-list {
+      list-style: none;
+      margin-top: 12px;
+    }
+    .bullet-list li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: #5D3D4B;
+    }
+    .bullet-list li::before {
+      content: "🌀";
+      font-size: 1rem;
+    }
+
+    /* Curly care tips section */
+    .tips-section {
+      background: #FEF8FB;
+      border-radius: 32px;
+      padding: 28px;
+      margin: 32px 0 28px;
+      border: 1px solid #EECBD9;
+    }
+    .tips-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      font-family: 'Playfair Display', serif;
+      color: #663D52;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .tips-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .tip-card {
+      flex: 1;
+      min-width: 200px;
+      background: white;
+      border-radius: 24px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #F0CCDC;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .tip-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .tip-card h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #AD5F7E;
+      margin-bottom: 10px;
+    }
+    .tip-card p {
+      font-size: 0.9rem;
+      color: #5D3D4B;
+      line-height: 1.4;
+    }
+
+    /* Booking bar */
+    .booking-mobile {
+      background: #FEF2F7;
+      border-radius: 60px;
+      padding: 18px 24px;
+      margin: 20px 0 20px;
+      border: 1px solid #EEAFC5;
+      box-shadow: 0 5px 0 #FAD2E2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .booking-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      font-family: 'Playfair Display', serif;
+      color: #773E56;
+    }
+    .booking-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .phone-btn {
+      background: white;
+      padding: 10px 24px;
+      border-radius: 60px;
+      font-weight: 500;
+      border: 1px solid #EFA3BF;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.05s ease;
+    }
+    .phone-btn:active {
+      transform: translateY(1px);
+    }
+    .insta-btn-mobile {
+      background: #FEF0F6;
+      padding: 8px 20px;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      border: 1px solid #EBB6CC;
+      font-weight: 500;
+      transition: transform 0.05s ease;
+    }
+    .insta-btn-mobile:active {
+      transform: translateY(1px);
+    }
+    .insta-icon-small {
+      width: 28px;
+      height: 28px;
+      background: radial-gradient(circle at 30% 30%, #F5A9C4, #D85F8B);
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .insta-icon-small svg {
+      width: 16px;
+      fill: white;
+    }
+
+    /* Navigation */
+    .nav-mirror {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0 16px;
+      justify-content: flex-start;
+    }
+    .nav-btn-mirror {
+      background: #FFFFFF;
+      border: 1px solid #EEAFC7;
+      border-radius: 40px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #613D4D;
+      box-shadow: 0 3px 0 #FCD2E3;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.05s ease;
+    }
+    .nav-btn-mirror:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 0 #FCD2E3;
+    }
+    .nav-btn-mirror.active {
+      background: #FEF0F7;
+      border-color: #E999B8;
+      color: #8F4667;
+      box-shadow: 0 3px 0 #F5B8D1;
+    }
+
+    /* Contact strip */
+    .contact-strip-mobile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .call-strip {
+      background: #FEF1F7;
+      border-radius: 60px;
+      padding: 12px 24px;
+      font-weight: 500;
+      border: 1px solid #EEB2CA;
+      cursor: pointer;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.05s ease;
+      white-space: nowrap;
+    }
+    .call-strip:active {
+      transform: translateY(1px);
+    }
+    .address-strip {
+      background: #FEF0F6;
+      border-radius: 60px;
+      padding: 12px 24px;
+      text-align: center;
+      font-weight: 500;
+      border: 1px solid #E9B4CA;
+      font-size: 1rem;
+      flex: 1;
+      white-space: nowrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .booking-mobile {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+      .booking-actions {
+        justify-content: center;
+      }
+      .nav-mirror {
+        justify-content: center;
+      }
+      .hero-quote h1 {
+        font-size: 1.6rem;
+      }
+      .hero-quote p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .contact-strip-mobile {
+        flex-direction: column;
+      }
+      .call-strip {
+        justify-content: center;
+        white-space: nowrap;
+      }
+      .address-strip {
+        white-space: nowrap;
+        overflow-x: auto;
+      }
+      .video-content {
+        padding: 20px;
+      }
+      .video-title {
+        font-size: 1.3rem;
+      }
+      .tips-grid {
+        flex-direction: column;
+      }
+      .tip-card {
+        min-width: auto;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .content-pad {
+        padding: 20px 18px 28px;
+      }
+      .brand h2 {
+        font-size: 1.5rem;
+      }
+      .brand span {
+        font-size: 0.7rem;
+      }
+      .curly-badge-header {
+        font-size: 0.7rem;
+        padding: 4px 12px;
+      }
+      .hero-quote {
+        padding: 20px;
+      }
+      .hero-quote h1 {
+        font-size: 1.4rem;
+      }
+      .nav-btn-mirror {
+        padding: 6px 14px;
+        font-size: 0.75rem;
+      }
+      .booking-title {
+        font-size: 1.2rem;
+      }
+      .phone-btn, .insta-btn-mobile, .call-strip, .address-strip {
+        font-size: 0.9rem;
+        padding: 8px 18px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-container">
+  <!-- Header Image -->
+  <div class="curly-header">
+    <img src="image/curly-hair-header.jpeg" alt="Curly Hair Specialists" onerror="this.src='https://placehold.co/1100x400/FCE4EC/AF7B92?text=Curly+Hair+Specialists'">
+  </div>
+
+  <div class="content-pad">
+    <!-- Brand row -->
+    <div class="brand-row">
+      <div class="brand">
+        <h2>Cidia's <span>HAIR & ART STUDIO</span></h2>
+      </div>
+      <div class="curly-badge-header">🌀 curly experts 🌀</div>
+    </div>
+
+    <!-- Hero Quote Section -->
+    <div class="hero-quote">
+      <h1>Curly Hair Specialist</h1>
+      <p>For years, you have been told to straighten your hair to make it "presentable".<br>At Cidia's, we believe your curls are your crown.</p>
+    </div>
+
+    <!-- Video Cards Section -->
+    <div class="video-grid">
+      <!-- Card 1: The Curly Cut -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video autoplay loop muted playsinline>
+            <source src="image/curly-hair1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-content">
+          <div class="video-title">✨ The Curly Cut</div>
+          <div class="video-description">
+            <p>To ensure perfect shape and bounces, a dry cut is performed in some cases. This technique respects your curl pattern and enhances natural movement.</p>
+            <ul class="bullet-list">
+              <li>Dry cutting for precision shape</li>
+              <li>Respects your unique curl pattern</li>
+              <li>Creates effortless bounce and volume</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Hydration Therapy + Education -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video autoplay loop muted playsinline>
+            <source src="image/curly-hair2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-content">
+          <div class="video-title">💧 Hydration Therapy & The Education</div>
+          <div class="video-description">
+            <p><strong>Hydration Therapy</strong> — Deep conditioning treatments designed for thirsty curls. Restores moisture, definition, and shine.</p>
+            <p><strong>The Education</strong> — We teach you how to maintain your style at home, from refreshing in the morning to deep cleansing.</p>
+            <ul class="bullet-list">
+              <li>Custom hydration masks</li>
+              <li>Learn to refresh curls without frizz</li>
+              <li>At-home care routines made simple</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Curly Care Tips -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video autoplay loop muted playsinline>
+            <source src="image/curly-hair3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-content">
+          <div class="video-title">🌀 Curly Care Wisdom</div>
+          <div class="video-description">
+            <p>Taking care of curly hair is about maintaining moisture and definition.</p>
+            <p><strong>Don't wash it every day.</strong> Rinse with a conditioner only to refresh your curls. Use a deep conditioner or mask weekly to maintain elasticity.</p>
+            <ul class="bullet-list">
+              <li>Co-wash between shampoos</li>
+              <li>Weekly deep conditioning treatments</li>
+              <li>Protect elasticity for defined curls</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Tips Section -->
+    <div class="tips-section">
+      <div class="tips-title">🌀 Your Curl Journey Starts Here</div>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon">💧</div>
+          <h4>Hydration First</h4>
+          <p>Curly hair craves moisture. We use custom-blended masks to restore your natural hydration balance.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">✂️</div>
+          <h4>Shape & Movement</h4>
+          <p>Our dry cutting technique enhances your curl pattern, creating volume and bounce that lasts.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">📚</div>
+          <h4>Empowerment Through Education</h4>
+          <p>Leave with the knowledge to maintain gorgeous curls at home — from morning refresh to weekly treatments.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Bar -->
+    <div class="booking-mobile">
+      <div class="booking-title">📅 Book your curly consultation today</div>
+      <div class="booking-actions">
+        <div class="phone-btn" id="mobileCallBtn">📞 203-788-7260</div>
+        <div class="insta-btn-mobile" id="mobileInstaBtn">
+          <div class="insta-icon-small">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.309.975.975 1.247 2.242 1.309 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.309 3.608-.975.975-2.242 1.247-3.608 1.309-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.309-.975-.975-1.247-2.242-1.309-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.309-3.608.975-.975 2.242-1.247 3.608-1.309 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.648.64 2.365 1.923 1.082 3.206.6 4.755.515 6.61.457 7.89.443 8.299.443 12s.014 4.108.072 5.39c.085 1.855.568 3.404 1.85 4.687 1.283 1.283 2.832 1.765 4.687 1.85 1.28.058 1.689.072 5.39.072 3.702 0 4.11-.014 5.39-.072 1.855-.085 3.404-.568 4.687-1.85 1.283-1.283 1.765-2.832 1.85-4.687.058-1.282.072-1.69.072-5.39 0-3.702-.014-4.11-.072-5.39-.085-1.855-.568-3.404-1.85-4.687C20.797.64 19.248.157 17.392.072 16.11.014 15.702 0 12 0z"/></svg>
+          </div>
+          <span>@hairartbycidia</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-mirror">
+      <div class="nav-btn-mirror" data-nav="home">🏠 Home</div>
+      <div class="nav-btn-mirror" data-nav="about">📖 About</div>
+      <div class="nav-btn-mirror" data-nav="services">✂️ Services</div>
+      <div class="nav-btn-mirror active" data-nav="curly">🌀 Curly hair</div>
+      <div class="nav-btn-mirror" data-nav="team">👥 Team</div>
+      <div class="nav-btn-mirror" data-nav="gallery">📸 Gallery</div>
+      <div class="nav-btn-mirror" data-nav="contact">📍 Contact</div>
+    </div>
+
+    <!-- Contact Strip -->
+    <div class="contact-strip-mobile">
+      <div class="call-strip" id="footerCallBtn">📞 call/text 203-788-7260</div>
+      <div class="address-strip">📍 20 Church Hill Rd, Newtown, CT 06470</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Phone call functionality
+  const callButtons = document.querySelectorAll('#mobileCallBtn, #footerCallBtn, .phone-btn, .call-strip');
+  callButtons.forEach(btn => {
+    if(btn) btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      window.location.href = 'tel:2037887260';
+    });
+  });
+
+  // Instagram click
+  const instaMobile = document.getElementById('mobileInstaBtn');
+  if(instaMobile) {
+    instaMobile.addEventListener('click', () => {
+      window.open('https://www.instagram.com/hairartbycidia', '_blank');
+    });
+  }
+
+  // About page HTML
+  const aboutPageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes"><title>Cidia's — About</title><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#F2D7DE;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:16px}.kiosk{max-width:1000px;width:100%;background:white;border-radius:40px;padding:24px;border:1px solid #E9BACB}.mirror-container{display:flex;gap:24px;flex-wrap:wrap}.video-mirror{flex:1;min-width:220px}.video-wrapper{border-radius:28px;overflow:hidden;border:3px solid #F5C4D6;aspect-ratio:3/4}.video-wrapper video{width:100%;height:100%;object-fit:cover}.content-side{flex:1}.brand-main h1{font-size:2.8rem;color:#52303F;font-family:'Playfair Display',serif}.hair-art{font-size:1.5rem;color:#AC758B;letter-spacing:0.1em}.tagline{background:#FDEDF3;display:inline-block;padding:0.3rem 1.2rem;border-radius:40px;margin:12px 0}.dreams{font-size:2.2rem;color:#603A49;font-family:'Playfair Display',serif;font-style:italic;border-bottom:2px solid #F2C3D4;padding-bottom:8px}.about-story{background:#FEF8FB;border-radius:28px;padding:20px;border-left:6px solid #EFAFC6;margin:16px 0}.story-headline{font-size:1.6rem;font-weight:600;color:#7C4A60}.story-text{line-height:1.5;color:#4F3442;font-size:0.95rem}.booking-row{background:#FEF2F7;border-radius:60px;padding:14px 20px;margin:16px 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center}.booking-text{font-size:1.3rem;color:#773E56}.call-chip{background:white;padding:8px 18px;border-radius:40px;border:1px solid #EFA3BF;cursor:pointer}.instagram-box{display:flex;align-items:center;gap:10px;background:#FEF0F6;padding:6px 16px;border-radius:50px;width:fit-content;cursor:pointer;margin:12px 0}.nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.nav-btn{background:white;border:1px solid #EEAFC7;border-radius:40px;padding:8px 16px;cursor:pointer;font-size:0.85rem}.bottom{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}.call-text{background:#FEF1F7;border-radius:60px;padding:10px 20px;cursor:pointer}.address{background:#FEF0F6;border-radius:60px;padding:10px 20px;flex:1;text-align:center}@media(max-width:700px){.dreams{font-size:1.8rem}.brand-main h1{font-size:2.2rem}}</style><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"></head><body><div class="kiosk"><div class="mirror-container"><div class="video-mirror"><div class="video-wrapper"><video autoplay loop muted playsinline><source src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/hair-style.mp4" type="video/mp4"></video></div></div><div class="content-side"><div class="brand-main"><h1>Cidia's</h1><div class="hair-art">HAIR & ART STUDIO</div></div><div class="tagline">ELEGANT AND MODERN SALON</div><div class="dreams">Hair of your dreams</div><div class="about-story"><div class="story-headline">✨ Our Story</div><div class="story-text"><p>For over <strong>17 years</strong>, Cidia's Hair & Art Studio has been a trusted destination in Newtown, CT. Specializing in organic hair solutions, custom extensions, vibrant color, and precision cuts.</p><p>Every service thoughtfully tailored. Beauty meets artistry.</p></div></div><div class="booking-row"><span class="booking-text">Book your app today</span><span class="call-chip">📞 203-788-7260</span></div><div class="instagram-box"><div style="width:28px;height:28px;background:radial-gradient(circle at 30% 30%,#F5A9C4,#D85F8B);border-radius:8px;display:inline-flex;align-items:center;justify-content:center"><svg width="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.309.975.975 1.247 2.242 1.309 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.309 3.608-.975.975-2.242 1.247-3.608 1.309-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.309-.975-.975-1.247-2.242-1.309-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.309-3.608.975-.975 2.242-1.247 3.608-1.309 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.648.64 2.365 1.923 1.082 3.206.6 4.755.515 6.61.457 7.89.443 8.299.443 12s.014 4.108.072 5.39c.085 1.855.568 3.404 1.85 4.687 1.283 1.283 2.832 1.765 4.687 1.85 1.28.058 1.689.072 5.39.072 3.702 0 4.11-.014 5.39-.072 1.855-.085 3.404-.568 4.687-1.85 1.283-1.283 1.765-2.832 1.85-4.687.058-1.282.072-1.69.072-5.39 0-3.702-.014-4.11-.072-5.39-.085-1.855-.568-3.404-1.85-4.687C20.797.64 19.248.157 17.392.072 16.11.014 15.702 0 12 0z"/></svg></div><span>@hairartbycidia</span></div><div class="nav"><div class="nav-btn">Home</div><div class="nav-btn">About</div><div class="nav-btn">Services</div><div class="nav-btn">Curly hair</div><div class="nav-btn">Team</div><div class="nav-btn">Gallery</div><div class="nav-btn">Contact</div></div><div class="bottom"><div class="call-text">📞 call/text 203-788-7260</div><div class="address">20 Church Hill Rd, Newtown, CT 06470</div></div></div></div></div><script>document.querySelectorAll('.call-chip,.call-text').forEach(el=>el.addEventListener('click',()=>location.href='tel:2037887260'));document.querySelector('.instagram-box').addEventListener('click',()=>window.open('https://www.instagram.com/hairartbycidia','_blank'));document.querySelectorAll('.nav-btn').forEach(btn=>{btn.addEventListener('click',()=>{if(btn.innerText==='About') alert('✨ About Cidia’s'); else if(btn.innerText==='Home') window.location.reload(); else if(btn.innerText==='Services') window.open(window.location.href,'_blank'); else alert('✨ '+btn.innerText+' at Cidia’s');})});document.querySelector('video')?.play().catch(()=>{});<\/script></body></html>`;
+
+  const homePageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"><title>Cidia's Hair & Art Studio</title><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#F2D7DE;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:16px}.kiosk{max-width:1000px;width:100%;background:#fff;border-radius:40px;padding:24px;border:1px solid #E9BACB}.mirror-container{display:flex;gap:24px;flex-wrap:wrap}.video-mirror{flex:1}.video-wrapper{border-radius:28px;overflow:hidden;border:3px solid #F5C4D6;aspect-ratio:3/4}.video-wrapper video{width:100%;height:100%;object-fit:cover}.content-side{flex:1}.brand-main h1{font-size:2.8rem;color:#52303F;font-family:'Playfair Display',serif}.hair-art{font-size:1.5rem;color:#AC758B}.tagline-mirror{background:#FDEDF3;display:inline-block;padding:0.3rem 1.2rem;border-radius:40px;margin:12px 0}.dreams-mirror{font-size:2.2rem;color:#603A49;font-family:'Playfair Display',serif;font-style:italic;border-bottom:2px solid #F2C3D4}.service-desc-mirror{border-left:3px solid #EFAFC6;padding-left:20px;margin:16px 0}.booking-row{background:#FEF2F7;border-radius:60px;padding:14px 20px;margin:16px 0;display:flex;flex-wrap:wrap;gap:12px}.booking-text-mirror{font-size:1.3rem;color:#773E56}.call-phone-chip{background:#fff;padding:8px 18px;border-radius:40px;border:1px solid #EFA3BF;cursor:pointer}.instagram-mirror{display:flex;align-items:center;gap:10px;background:#FEF0F6;border-radius:50px;width:fit-content;padding:6px 16px;cursor:pointer;margin:12px 0}.nav-mirror{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.nav-btn-mirror{background:#fff;border:1px solid #EEAFC7;border-radius:40px;padding:8px 16px;cursor:pointer}.bottom-mirror{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}.call-text-phone{background:#FEF1F7;border-radius:60px;padding:10px 20px;cursor:pointer}.address-mirror{background:#FEF0F6;border-radius:60px;padding:10px 20px;flex:1;text-align:center}@media(max-width:700px){.dreams-mirror{font-size:1.8rem}}</style><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"></head><body><div class="kiosk"><div class="mirror-container"><div class="video-mirror"><div class="video-wrapper"><video autoplay loop muted playsinline><source src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/hair-style.mp4" type="video/mp4"></video></div></div><div class="content-side"><div class="brand-main"><h1>Cidia's</h1><div class="hair-art">HAIR & ART STUDIO</div></div><div class="tagline-mirror">ELEGANT AND MODERN SALON</div><div class="dreams-mirror">Hair of your dreams</div><div class="service-desc-mirror"><p>OUTSTANDING EXPERIENCE AND EXCEPTIONAL LEVEL OF SERVICE</p></div><div class="booking-row"><span class="booking-text-mirror">Book your app today</span><span class="call-phone-chip">📞 203-788-7260</span></div><div class="instagram-mirror"><div style="width:28px;height:28px;background:radial-gradient(circle at 30% 30%,#F5A9C4,#D85F8B);border-radius:8px;display:inline-flex;align-items:center;justify-content:center"><svg width="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.309.975.975 1.247 2.242 1.309 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.309 3.608-.975.975-2.242 1.247-3.608 1.309-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.309-.975-.975-1.247-2.242-1.309-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.309-3.608.975-.975 2.242-1.247 3.608-1.309 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.648.64 2.365 1.923 1.082 3.206.6 4.755.515 6.61.457 7.89.443 8.299.443 12s.014 4.108.072 5.39c.085 1.855.568 3.404 1.85 4.687 1.283 1.283 2.832 1.765 4.687 1.85 1.28.058 1.689.072 5.39.072 3.702 0 4.11-.014 5.39-.072 1.855-.085 3.404-.568 4.687-1.85 1.283-1.283 1.765-2.832 1.85-4.687.058-1.282.072-1.69.072-5.39 0-3.702-.014-4.11-.072-5.39-.085-1.855-.568-3.404-1.85-4.687C20.797.64 19.248.157 17.392.072 16.11.014 15.702 0 12 0z"/></svg></div><span>@hairartbycidia</span></div><div class="nav-mirror"><div class="nav-btn-mirror">Home</div><div class="nav-btn-mirror">About</div><div class="nav-btn-mirror">Services</div><div class="nav-btn-mirror">Curly hair</div><div class="nav-btn-mirror">Team</div><div class="nav-btn-mirror">Gallery</div><div class="nav-btn-mirror">Contact</div></div><div class="bottom-mirror"><div class="call-text-phone">📞 call/text 203-788-7260</div><div class="address-mirror">20 Church Hill Rd, Newtown, CT 06470</div></div></div></div></div><script>document.querySelectorAll('.call-phone-chip,.call-text-phone').forEach(el=>el.addEventListener('click',()=>location.href='tel:2037887260'));document.querySelector('.instagram-mirror')?.addEventListener('click',()=>window.open('https://www.instagram.com/hairartbycidia','_blank'));document.querySelectorAll('.nav-btn-mirror').forEach(btn=>{btn.addEventListener('click',()=>{let t=btn.innerText.toLowerCase();if(t==='about'){let w=window.open();w.document.write(\`${aboutPageHTML}\`);w.document.close()}else if(t==='home')window.location.reload();else if(t==='services')window.open(window.location.href,'_blank');else alert('✨ '+btn.innerText+' service')})});document.querySelector('video')?.play().catch(()=>{});<\/script></body></html>`;
+  
+  const servicesPageURL = window.location.href;
+
+  // Navigation handlers
+  const navButtons = document.querySelectorAll('.nav-btn-mirror');
+  navButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const buttonText = btn.innerText.toLowerCase().trim();
+      
+      if (buttonText === 'home') {
+        const win = window.open();
+        win.document.write(homePageHTML);
+        win.document.close();
+      } else if (buttonText === 'about') {
+        const win = window.open();
+        win.document.write(aboutPageHTML);
+        win.document.close();
+      } else if (buttonText === 'services') {
+        window.open(servicesPageURL, '_blank');
+      } else if (buttonText === 'curly hair') {
+        alert('🌀 You\'re on the Curly Hair page — embrace your crown!');
+      } else if (buttonText === 'team') {
+        alert('👥 Meet our talented team of curl experts and stylists!');
+      } else if (buttonText === 'gallery') {
+        window.open('https://www.instagram.com/hairartbycidia', '_blank');
+      } else if (buttonText === 'contact') {
+        alert('📍 20 Church Hill Rd, Newtown, CT 06470 | 📞 203-788-7260');
+      }
+    });
+  });
+
+  // Video autoplay handling
+  const videos = document.querySelectorAll('video');
+  videos.forEach(video => {
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {});
+    }
+  });
+</script>
+</body>
+</html>
