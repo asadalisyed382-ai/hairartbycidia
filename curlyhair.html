@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, view-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <meta name="format-detection" content="telephone=no">
   <title>Cidia's Hair & Art Studio — Curly Hair Specialists</title>
   <style>
@@ -130,12 +130,16 @@
       background: #F9EAF0;
       aspect-ratio: 16 / 9;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .video-wrapper video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      background: #F9EAF0;
     }
     .video-content {
       padding: 24px 28px;
@@ -464,13 +468,14 @@
       <p>For years, you have been told to straighten your hair to make it "presentable".<br>At Cidia's, we believe your curls are your crown.</p>
     </div>
 
-    <!-- Video Cards Section with correct video paths -->
+    <!-- Video Cards Section - Videos now show FULL (object-fit: contain) -->
     <div class="video-grid">
       <!-- Card 1: The Curly Cut -->
       <div class="video-card">
         <div class="video-wrapper">
           <video autoplay loop muted playsinline>
             <source src="curly-hair1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-content">
@@ -491,6 +496,7 @@
         <div class="video-wrapper">
           <video autoplay loop muted playsinline>
             <source src="curly-hair2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-content">
@@ -512,6 +518,7 @@
         <div class="video-wrapper">
           <video autoplay loop muted playsinline>
             <source src="curly-hair3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-content">
@@ -637,15 +644,21 @@
     });
   });
 
-  // Video autoplay handling with error fallback
+  // Video autoplay handling with error fallback - ensure videos play smoothly
   const videos = document.querySelectorAll('video');
   videos.forEach(video => {
     video.muted = true;
     video.setAttribute('playsinline', '');
+    // Force video to load and play
+    video.load();
     const playPromise = video.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
         console.log('Autoplay prevented - user interaction may be needed');
+        // Add click listener to play video if autoplay blocked
+        video.addEventListener('click', () => {
+          video.play().catch(() => {});
+        });
       });
     }
   });
