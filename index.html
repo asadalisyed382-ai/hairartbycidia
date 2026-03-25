@@ -464,7 +464,27 @@
   </div>
 
   <script>
-    // About page HTML content (preserved with original functionality)
+    // ======================== HELPER: Open external HTML page (preserves styling & functionality) ========================
+    function openPage(pageName) {
+      // Map navigation text to actual filenames
+      let fileName = '';
+      if (pageName === 'services') fileName = 'services.html';
+      else if (pageName === 'curly hair') fileName = 'curlyhair.html';
+      else if (pageName === 'team') fileName = 'team.html';
+      else if (pageName === 'gallery') fileName = 'gallery.html';
+      else if (pageName === 'about') fileName = 'about.html';
+      else if (pageName === 'contact') fileName = 'contact.html';
+      
+      if (fileName) {
+        // Attempt to open the relative HTML file (since all pages are in same repo/folder)
+        window.open(fileName, '_blank');
+      } else if (pageName === 'home') {
+        // Home is current page, optionally reload or show friendly alert
+        alert('✨ Welcome to Cidia\'s Hair & Art Studio! ✨');
+      }
+    }
+
+    // About page HTML (preserved original about content for About button)
     var aboutPageContent = '<!DOCTYPE html>\n<html>\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">\n<title>Cidia\'s - About Us</title>\n<style>\n*{margin:0;padding:0;box-sizing:border-box}\nbody{background:#F2D7DE;font-family:\'Inter\',sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}\n.kiosk{max-width:1100px;width:100%;background:white;border-radius:40px;padding:24px;border:1px solid #E9BACB}\n.mirror-container{display:flex;gap:28px;flex-wrap:wrap}\n.video-mirror{flex:1;min-width:250px}\n.video-wrapper{border-radius:32px;overflow:hidden;border:3px solid #F5C4D6;aspect-ratio:3/4}\n.video-wrapper video{width:100%;height:100%;object-fit:cover}\n.content-side{flex:1}\n.brand-main h1{font-size:2.8rem;color:#52303F;font-family:\'Playfair Display\',serif}\n.hair-art{font-size:1.5rem;color:#AC758B;letter-spacing:0.12em;text-transform:uppercase}\n.tagline{background:#FDEDF3;display:inline-block;padding:0.3rem 1.2rem;border-radius:40px;margin:14px 0}\n.dreams{font-size:2.2rem;color:#603A49;font-family:\'Playfair Display\',serif;font-style:italic;border-bottom:2px solid #F2C3D4;padding-bottom:12px}\n.about-story{background:#FEF8FB;border-radius:28px;padding:20px;border-left:6px solid #EFAFC6;margin:20px 0}\n.story-headline{font-size:1.6rem;font-weight:600;color:#7C4A60;margin-bottom:12px}\n.story-text{line-height:1.6;color:#4F3442}\n.story-text p{margin-bottom:0.8rem}\n.highlight{background:#FEF0F6;display:inline-block;padding:0.2rem 0.7rem;border-radius:24px;font-weight:500}\n.service-desc{border-left:3px solid #EFAFC6;padding-left:20px;margin:16px 0}\n.booking-row{background:#FEF2F7;border-radius:60px;padding:14px 20px;margin:20px 0}\n.booking-left{display:flex;gap:12px;flex-wrap:wrap;align-items:center}\n.booking-text{font-size:1.3rem;color:#773E56;font-family:\'Playfair Display\',serif}\n.call-chip{background:white;padding:8px 18px;border-radius:40px;border:1px solid #EFA3BF;cursor:pointer;font-size:0.95rem}\n.instagram-box{display:flex;align-items:center;gap:10px;background:#FEF0F6;padding:6px 16px;border-radius:50px;width:fit-content;cursor:pointer;margin:12px 0}\n.instagram-icon{width:30px;height:30px;background:radial-gradient(circle at 30% 30%,#F5A9C4,#D85F8B);border-radius:8px;display:flex;align-items:center;justify-content:center}\n.instagram-icon svg{width:18px;fill:white}\n.nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}\n.nav-btn{background:white;border:1px solid #EEAFC7;border-radius:40px;padding:8px 14px;cursor:pointer;font-size:0.85rem}\n.bottom{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}\n.call-text{background:#FEF1F7;border-radius:60px;padding:10px 20px;cursor:pointer;font-size:0.95rem}\n.address{background:#FEF0F6;border-radius:60px;padding:10px 20px;flex:1;text-align:center;font-size:0.9rem}\n@media(max-width:800px){.mirror-container{flex-direction:column}.dreams{font-size:1.8rem}.brand-main h1{font-size:2.2rem}}\n@media(max-width:480px){.kiosk{padding:18px}.brand-main h1{font-size:1.9rem}.dreams{font-size:1.5rem}}\n</style>\n<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">\n</head>\n<body>\n<div class="kiosk">\n<div class="mirror-container">\n<div class="video-mirror"><div class="video-wrapper"><video autoplay loop muted playsinline><source src="https://raw.githubusercontent.com/asadalisyed382-ai/hairartbycidia/main/hair-style.mp4"></video></div></div>\n<div class="content-side">\n<div class="brand-main"><h1>Cidia\'s</h1><div class="hair-art">HAIR & ART STUDIO</div></div>\n<div class="tagline">ELEGANT AND MODERN SALON</div>\n<div class="dreams">Hair of your dreams</div>\n<div class="about-story">\n<div class="story-headline">✨ Our Story</div>\n<div class="story-text">\n<p>For over <span class="highlight">17 years</span>, Cidia\'s Hair & Art Studio has been a trusted destination in Newtown, CT, offering a personalized salon experience like no other. Specializing in exclusive, organic hair solutions, we cater to clients seeking meticulous attention and high-quality craftsmanship.</p>\n<p>From custom hair extensions and vibrant color to precision cuts, curly hair care, and formal event styling, every service is thoughtfully tailored to the individual. We are proud to use only premium, sustainable products—and to set ourselves apart with <span class="highlight">bespoke, custom-made hair extensions</span> that offer a truly seamless finish.</p>\n<p>At Cidia\'s, beauty meets artistry, and every client leaves feeling uniquely cared for.</p>\n</div>\n</div>\n<div class="service-desc"><p>OUTSTANDING EXPERIENCE AND<br>EXCEPTIONAL LEVEL OF SERVICE<br>TO CLIENTS, WHATEVER THEIR<br>REQUIREMENTS MAY BE</p></div>\n<div class="booking-row"><div class="booking-left"><span class="booking-text">Book your app today</span><span class="call-chip">📞 203-788-7260</span></div></div>\n<div class="instagram-box"><div class="instagram-icon"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.309.975.975 1.247 2.242 1.309 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.309 3.608-.975.975-2.242 1.247-3.608 1.309-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.309-.975-.975-1.247-2.242-1.309-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.309-3.608.975-.975 2.242-1.247 3.608-1.309 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.648.64 2.365 1.923 1.082 3.206.6 4.755.515 6.61.457 7.89.443 8.299.443 12s.014 4.108.072 5.39c.085 1.855.568 3.404 1.85 4.687 1.283 1.283 2.832 1.765 4.687 1.85 1.28.058 1.689.072 5.39.072 3.702 0 4.11-.014 5.39-.072 1.855-.085 3.404-.568 4.687-1.85 1.283-1.283 1.765-2.832 1.85-4.687.058-1.282.072-1.69.072-5.39 0-3.702-.014-4.11-.072-5.39-.085-1.855-.568-3.404-1.85-4.687C20.797.64 19.248.157 17.392.072 16.11.014 15.702 0 12 0z"/></svg></div><span>@hairartbycidia</span></div>\n<div class="nav"><div class="nav-btn">Home</div><div class="nav-btn">About</div><div class="nav-btn">Services</div><div class="nav-btn">Curly hair</div><div class="nav-btn">Team</div><div class="nav-btn">Gallery</div><div class="nav-btn">Contact</div></div>\n<div class="bottom"><div class="call-text">📞 call/text 203-788-7260</div><div class="address">20 Church Hill Rd, Newtown, CT 06470</div></div>\n</div></div></div>\n<script>\ndocument.querySelector(\'.instagram-box\').addEventListener(\'click\',function(){window.open(\'https://www.instagram.com/hairartbycidia\',\'_blank\')});\ndocument.querySelectorAll(\'.call-chip,.call-text\').forEach(function(el){el.addEventListener(\'click\',function(){window.location.href=\'tel:2037887260\'})});\ndocument.querySelectorAll(\'.nav-btn\').forEach(function(btn){btn.addEventListener(\'click\',function(){if(btn.innerText===\'About\'){alert(\'✨ You are on About page\');}else if(btn.innerText===\'Home\'){alert(\'🏠 Return to Home\');}else{alert(\'🌟 \'+btn.innerText+\' — experience at Cidia\'s!\');}})});\ndocument.querySelector(\'video\').play().catch(function(e){});\n<\/script>\n</body>\n</html>';
     
     // Instagram click - opens Instagram profile
@@ -484,13 +504,31 @@
       });
     }
     
-    // Navigation buttons (fully functional)
+    // ========== UPDATED NAVIGATION: Opens external HTML pages (services.html, team.html, curlyhair.html, gallery.html) ==========
     var navButtons = document.querySelectorAll('.nav-btn-mirror');
     for (var i = 0; i < navButtons.length; i++) {
       navButtons[i].addEventListener('click', function() {
         var buttonText = this.innerText.toLowerCase().trim();
         
-        if (buttonText === 'about') {
+        // Map button text to dedicated external pages (as per requirement)
+        if (buttonText === 'services') {
+          // Open services.html (Code B)
+          window.open('services.html', '_blank');
+        } 
+        else if (buttonText === 'team') {
+          // Open team.html (Code C)
+          window.open('team.html', '_blank');
+        }
+        else if (buttonText === 'curly hair') {
+          // Open curlyhair.html (Code D)
+          window.open('curlyhair.html', '_blank');
+        }
+        else if (buttonText === 'gallery') {
+          // Open gallery.html (Code E)
+          window.open('gallery.html', '_blank');
+        }
+        else if (buttonText === 'about') {
+          // About opens the preserved aboutPageContent (fallback if about.html doesn't exist, but we keep original functionality)
           var newWindow = window.open();
           if (newWindow) {
             newWindow.document.write(aboutPageContent);
@@ -499,21 +537,9 @@
             var dataUrl = 'data:text/html;charset=utf-8,' + encodeURIComponent(aboutPageContent);
             window.open(dataUrl, '_blank');
           }
-        } 
+        }
         else if (buttonText === 'home') {
           alert('✨ Welcome to Cidia\'s Hair & Art Studio! ✨');
-        }
-        else if (buttonText === 'services') {
-          alert('✂️ Our Services: Precision Haircuts • Custom Extensions • Vibrant Color • Curly Hair Specialist • Bridal Styling. Call 203-788-7260 to book!');
-        }
-        else if (buttonText === 'curly hair') {
-          alert('🌀 Curly hair experts! Custom curly cuts, hydration treatments, and styling. Book your curly consultation today!');
-        }
-        else if (buttonText === 'team') {
-          alert('👥 Meet our talented team: Cidia (Founder & Master Stylist) plus our creative artists specializing in extensions, color, and curly textures.');
-        }
-        else if (buttonText === 'gallery') {
-          window.open('https://www.instagram.com/hairartbycidia', '_blank');
         }
         else if (buttonText === 'contact') {
           alert('📍 20 Church Hill Rd, Newtown, CT 06470\n📞 203-788-7260\n📧 Call or text to book your appointment!');
