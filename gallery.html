@@ -51,6 +51,16 @@
       font-family: 'Playfair Display', serif;
       color: #663D52;
       margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .gallery-header h1 .sparkle-left,
+    .gallery-header h1 .sparkle-right {
+      font-size: 2.2rem;
+      display: inline-block;
     }
     .gallery-header p {
       font-size: 1.1rem;
@@ -349,6 +359,10 @@
       .gallery-header h1 {
         font-size: 2rem;
       }
+      .gallery-header h1 .sparkle-left,
+      .gallery-header h1 .sparkle-right {
+        font-size: 1.8rem;
+      }
     }
 
     /* Responsive - Mobile */
@@ -364,7 +378,12 @@
         padding: 32px 20px;
       }
       .gallery-header h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        gap: 8px;
+      }
+      .gallery-header h1 .sparkle-left,
+      .gallery-header h1 .sparkle-right {
+        font-size: 1.4rem;
       }
       .gallery-header p {
         font-size: 0.95rem;
@@ -412,6 +431,13 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
       }
+      .gallery-header h1 {
+        font-size: 1.4rem;
+      }
+      .gallery-header h1 .sparkle-left,
+      .gallery-header h1 .sparkle-right {
+        font-size: 1.2rem;
+      }
       .booking-title {
         font-size: 1.1rem;
       }
@@ -425,9 +451,13 @@
 </head>
 <body>
 <div class="app-container">
-  <!-- Gallery Header -->
+  <!-- Gallery Header with sparkle emojis around title -->
   <div class="gallery-header">
-    <h1>✨ Our Artistry Gallery ✨</h1>
+    <h1>
+      <span class="sparkle-left">✨</span>
+      Our Artistry Gallery
+      <span class="sparkle-right">✨</span>
+    </h1>
     <p>Explore Cidia's signature work — from seamless extensions and vibrant color transformations to precision cuts and curly hair masterpieces. Every image tells a story of beauty, confidence, and craftsmanship.</p>
   </div>
 
@@ -440,7 +470,7 @@
       <div class="gallery-badge">📸 hair artistry in action</div>
     </div>
 
-    <!-- Gallery Grid - 3 images per row, FULL IMAGES (no cropping) - 12 images total (Gal1 to Gal12) -->
+    <!-- Gallery Grid - 3 images per row, FULL IMAGES (no cropping) - 14 images total (Gal1 to Gal14) -->
     <div class="gallery-grid" id="galleryGrid">
       <!-- Images will be dynamically injected via JavaScript -->
     </div>
@@ -488,7 +518,7 @@
 </div>
 
 <script>
-  // Generate 12 images from Gal1.jpeg to Gal12.jpeg (Gal13, Gal14, Gal15 removed)
+  // Generate 14 images from Gal1.jpeg to Gal14.jpeg (Gal1 through Gal14 included)
   const galleryImages = [];
   const captions = [
     "✨ Seamless Hair Extensions — Natural volume and length",
@@ -502,10 +532,12 @@
     "💎 Custom Extensions — Perfectly blended",
     "🎨 Color Correction — Restored vibrancy",
     "✂️ Modern Pixie Cut — Chic and sophisticated",
-    "💫 Volume & Movement — Red carpet ready"
+    "💫 Volume & Movement — Red carpet ready",
+    "✨ Signature Hair Art — Creative expression",
+    "🌟 Complete Transformation — Before & after magic"
   ];
   
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 1; i <= 14; i++) {
     galleryImages.push({
       src: `image/Gal${i}.jpeg`,
       alt: `Cidia's Hair Art - Gallery Image ${i}`,
