@@ -96,7 +96,7 @@
       white-space: nowrap;
     }
 
-    /* Gallery Grid - 3 columns on desktop, responsive */
+    /* Gallery Grid - 3 columns on desktop, images show FULL (no cropping) */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -113,6 +113,9 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
       aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .gallery-item:hover {
       transform: translateY(-5px);
@@ -121,12 +124,13 @@
     .gallery-item img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      background: #F9EAF0;
       transition: transform 0.4s ease;
     }
     .gallery-item:hover img {
-      transform: scale(1.03);
+      transform: scale(1.02);
     }
 
     /* Lightbox Modal */
@@ -151,6 +155,9 @@
       max-width: 90%;
       max-height: 90%;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .lightbox-content img {
       width: auto;
@@ -433,7 +440,7 @@
       <div class="gallery-badge">📸 hair artistry in action</div>
     </div>
 
-    <!-- Gallery Grid - 3 images per row -->
+    <!-- Gallery Grid - 3 images per row, FULL IMAGES (no cropping) -->
     <div class="gallery-grid" id="galleryGrid">
       <!-- Images will be dynamically injected via JavaScript -->
     </div>
@@ -487,7 +494,7 @@
     galleryImages.push({
       src: `image/Gal${i}.jpeg`,
       alt: `Cidia's Hair Art - Gallery Image ${i}`,
-      caption: `✨ Cidia's signature work — transformation ${i} ✨`
+      caption: `✨ Cidia's signature work — ${i === 1 ? 'Seamless Hair Extensions' : i === 2 ? 'Vibrant Color Transformation' : i === 3 ? 'Precision Curly Cut' : i === 4 ? 'Balayage Masterpiece' : i === 5 ? 'Bridal Styling' : i === 6 ? 'Textured Layers' : i === 7 ? 'Blonding Expert' : i === 8 ? 'Curly Hair Specialist' : i === 9 ? 'Custom Extensions' : i === 10 ? 'Color Correction' : i === 11 ? 'Modern Pixie Cut' : i === 12 ? 'Volume & Movement' : i === 13 ? 'Vivid Colors' : i === 14 ? 'Special Event Styling' : 'Signature Hair Art'} ✨`
     });
   }
 
@@ -506,7 +513,7 @@
       imgElement.alt = img.alt;
       imgElement.loading = 'lazy';
       imgElement.onerror = function() {
-        this.src = 'https://placehold.co/600x600/F7E2EB/A66F88?text=Image+Not+Found';
+        this.src = 'https://placehold.co/800x800/F7E2EB/A66F88?text=Image+Not+Found';
       };
       
       galleryItem.appendChild(imgElement);
